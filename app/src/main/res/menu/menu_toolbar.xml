@@ -1,0 +1,53 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!-- Item cha + submenu -->
+    <item
+        android:id="@+id/menu_profile"
+        android:title="Hồ sơ cá nhân"
+        android:icon="@android:drawable/ic_menu_info_details"
+        app:showAsAction="always">
+    <menu>
+            <item
+                android:id="@+id/submenu_view_profile"
+                android:title="Xem hồ sơ"/>
+            <item
+                android:id="@+id/submenu_edit_profile"
+                android:title="Chỉnh sửa hồ sơ"/>
+        </menu>
+    </item>
+
+    <!-- Item cha khác -->
+    <item
+        android:id="@+id/menu_jobs"
+        android:title="Công việc"
+        android:icon="@android:drawable/ic_menu_search"
+        app:showAsAction="always">
+
+    <menu>
+            <item
+                android:id="@+id/submenu_saved_jobs"
+                android:title="Công việc đã lưu"/>
+            <item
+                android:id="@+id/submenu_applied_jobs"
+                android:title="Công việc đã ứng tuyển"/>
+        </menu>
+    </item>
+
+    <!-- Item cha khác -->
+    <item
+        android:id="@+id/menu_settings"
+        android:title="Cài đặt"
+        android:icon="@android:drawable/ic_menu_manage"
+        app:showAsAction="always">
+
+    <menu>
+            <item
+                android:id="@+id/submenu_account"
+                android:title="Tài khoản"/>
+            <item
+                android:id="@+id/submenu_notifications"
+                android:title="Thông báo"/>
+        </menu>
+    </item>
+</menu>

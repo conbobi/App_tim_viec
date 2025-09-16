@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/txtEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Đây là màn hình chỉnh sửa hồ sơ" />
+
+    <!-- Fragment địa điểm -->
+    <FrameLayout
+        android:id="@+id/fragmentContainerDiaDiem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <!-- Fragment kỹ năng -->
+    <FrameLayout
+        android:id="@+id/fragmentContainerKyNang"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <!-- Fragment ngày tháng năm sinh -->
+    <FrameLayout
+        android:id="@+id/fragmentContainerNgayThang"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"/>
+    <!-- Fragment giờ giấc -->
+    <FrameLayout
+        android:id="@+id/fragmentContainerGio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"/>
+    <FrameLayout
+        android:id="@+id/fragmentContainerChinhSuaKyNang"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+</LinearLayout>

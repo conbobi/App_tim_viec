@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="ToolbarPopupTheme" parent="ThemeOverlay.AppCompat.Light">
+        <!-- Màu chữ item menu & submenu -->
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:textColorPrimary">@android:color/black</item>
+        <!-- Nếu muốn nền trắng -->
+        <item name="android:colorBackground">@android:color/black</item>
+    </style>
+
+</resources>

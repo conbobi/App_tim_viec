@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">app_tim_viec</string>
+    <!-- Thêm 2 chuỗi này để fix lỗi -->
+    <string name="navigation_drawer_open">Mở menu</string>
+    <string name="navigation_drawer_close">Đóng menu</string>
 </resources>

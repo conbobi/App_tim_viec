@@ -5,15 +5,11 @@
     android:orientation="vertical"
     android:padding="16dp">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Chọn kỹ năng"
-        android:textSize="16sp"
-        android:paddingBottom="8dp" />
-
-    <Spinner
-        android:id="@+id/spinnerKyNang"
+    <AutoCompleteTextView
+        android:id="@+id/autoCompleteDiaDiem"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:hint="Nhập địa điểm làm việc"
+        android:completionThreshold="1" /> <!-- nhập 1 ký tự thì gợi ý -->
+
 </LinearLayout>

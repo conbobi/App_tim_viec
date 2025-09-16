@@ -11,6 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.App_tim_viec">
+        <activity android:name=".ui.hosocanhan.ActivityHoSoNTV"/>
+        <activity android:name=".ui.hosocanhan.ActivityChinhSuaHoSo"/>
         <activity
             android:name=".MainActivity"
             android:exported="true">
