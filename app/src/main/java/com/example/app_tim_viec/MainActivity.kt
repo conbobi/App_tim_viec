@@ -8,32 +8,31 @@ import com.example.app_tim_viec.ui.hosocanhan.ActivityHoSoNTV
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.app_tim_viec.databinding.ActivityMainBinding
+import com.example.app_tim_viec.databinding.ActivityManHinhDangNhapBinding
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityMainBinding
+    private lateinit var binding: ActivityManHinhDangNhapBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
 
         // Dùng binding thay cho setContentView(R.layout.activity_main)
-        binding = ActivityMainBinding.inflate(layoutInflater)
+        binding = ActivityManHinhDangNhapBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         // Áp dụng insets cho layout gốc
         ViewCompat.setOnApplyWindowInsetsListener(binding.main) { v, insets ->
-        setContentView(R.layout.activity_man_hinh_dang_nhap)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            // 🔑 Luôn return lại insets
+            // 🔑 phải return insets
             insets
         }
 
-        // Xử lý sự kiện cho nút nằm ngoài lambda
-        binding.btnOpenChinhSua.setOnClickListener {
-            val intent = Intent(this, ActivityHoSoNTV::class.java)
-            startActivity(intent)
+            // Xử lý sự kiện cho nút nằm ngoài lambda
+            binding.btnOpenChinhSua.setOnClickListener {
+                val intent = Intent(this, ActivityHoSoNTV::class.java)
+                startActivity(intent)
+            }
         }
     }
-}
