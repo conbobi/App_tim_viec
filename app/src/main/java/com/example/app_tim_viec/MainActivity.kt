@@ -22,18 +22,19 @@ class MainActivity : AppCompatActivity() {
 
         // Áp dụng insets cho layout gốc
         ViewCompat.setOnApplyWindowInsetsListener(binding.main) { v, insets ->
-        setContentView(R.layout.activity_man_hinh_dang_nhap)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            // 🔑 Luôn return lại insets
-            insets
-        }
+            setContentView(R.layout.activity_man_hinh_dang_nhap)
+            ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+                val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+                v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+                // 🔑 Luôn return lại insets
+                insets
+            }
 
-        // Xử lý sự kiện cho nút nằm ngoài lambda
-        binding.btnOpenChinhSua.setOnClickListener {
-            val intent = Intent(this, ActivityHoSoNTV::class.java)
-            startActivity(intent)
+            // Xử lý sự kiện cho nút nằm ngoài lambda
+            binding.btnOpenChinhSua.setOnClickListener {
+                val intent = Intent(this, ActivityHoSoNTV::class.java)
+                startActivity(intent)
+            }
         }
     }
 }
