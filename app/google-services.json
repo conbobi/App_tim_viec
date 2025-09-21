@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "309380215783",
+    "firebase_url": "https://jobly-de118-default-rtdb.firebaseio.com",
+    "project_id": "jobly-de118",
+    "storage_bucket": "jobly-de118.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:309380215783:android:d79b0eea56d5748cb44342",
+        "android_client_info": {
+          "package_name": "com.example.app_tim_viec"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBDERt5wbnXimPGaOhbPh9H8mrH8t0whzU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

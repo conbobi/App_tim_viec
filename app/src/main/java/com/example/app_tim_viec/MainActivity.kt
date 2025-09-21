@@ -22,6 +22,8 @@ class MainActivity : AppCompatActivity() {
 
         // Áp dụng insets cho layout gốc
         ViewCompat.setOnApplyWindowInsetsListener(binding.main) { v, insets ->
+        setContentView(R.layout.activity_man_hinh_dang_nhap)
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             // 🔑 Luôn return lại insets

@@ -6,4 +6,8 @@
     </style>
 
     <style name="Theme.App_tim_viec" parent="Base.Theme.App_tim_viec" />
+    <!-- Theme riêng cho launch screen -->
+    <style name="Theme.Workly.Launch" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="android:windowBackground">@color/splash_background_color</item>
+    </style>
 </resources>

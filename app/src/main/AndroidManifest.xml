@@ -13,15 +13,20 @@
         android:theme="@style/Theme.App_tim_viec">
         <activity android:name=".ui.hosocanhan.ActivityHoSoNTV"/>
         <activity android:name=".ui.hosocanhan.ActivityChinhSuaHoSo"/>
+        <!-- Activity chứa Fragment Đăng nhập -->
         <activity
-            android:name=".MainActivity"
+            android:name=".UI.Xac_Thuc.dangnhap.ManHinhDangNhap"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-    </application>
 
+        <!-- Activity chính sau đăng nhập -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="false" />
+
+    </application>
 </manifest>
