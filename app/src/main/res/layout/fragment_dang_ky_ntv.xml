@@ -17,6 +17,22 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
+    <!-- Nút Đăng ký Nhà tuyển dụng -->
+    <!-- Nút Đăng ký Nhà tuyển dụng (nằm ngang với logo) -->
+    <Button
+        android:id="@+id/btnRegisterEmployer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Đăng ký Nhà tuyển dụng"
+        android:backgroundTint="@color/purple_500"
+        android:textColor="@color/white"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/logo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+
+
     <!-- Title -->
     <TextView
         android:id="@+id/tvTitle"

@@ -29,10 +29,6 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-            // Xử lý sự kiện cho nút nằm ngoài lambda
-            binding.btnOpenChinhSua.setOnClickListener {
-                val intent = Intent(this, ActivityHoSoNTV::class.java)
-                startActivity(intent)
-            }
+
         }
     }

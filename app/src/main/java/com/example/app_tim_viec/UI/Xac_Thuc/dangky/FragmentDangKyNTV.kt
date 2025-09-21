@@ -12,10 +12,15 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.app_tim_viec.R
 import com.example.app_tim_viec.UI.Xac_Thuc.dangnhap.FragmentDangNhap
+import com.example.app_tim_viec.UI.Xac_Thuc.register.EmployerRegisterFragment
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
-
+import kotlin.random.Random
+import  com.example.app_tim_viec.UI.Xac_Thuc.dangky.FragmentDangKyNTD
 class FragmentDangKyNTV : Fragment() {
+
+    //nút qua trang đăng kí
+    private lateinit var  btnRegisterEmployer: Button
 
     private lateinit var etHo: EditText
     private lateinit var etTen: EditText
@@ -48,7 +53,17 @@ class FragmentDangKyNTV : Fragment() {
         db = FirebaseFirestore.getInstance()
 
         btnRegister.setOnClickListener { dangKyNguoiDung() }
+// đăng kí nhà tuyển dụng
+        btnRegisterEmployer = view.findViewById(R.id.btnRegisterEmployer)
+// Đăng ký NTV
+        btnRegister.setOnClickListener { dangKyNguoiDung() }
 
+        btnRegisterEmployer.setOnClickListener {
+            requireActivity().supportFragmentManager.beginTransaction()
+                .replace(R.id.fragmentContainer, FragmentDangKyNTD())
+                .addToBackStack(null)
+                .commit()
+        }
         tvBackToLogin.setOnClickListener {
             requireActivity().supportFragmentManager.beginTransaction()
                 .replace(R.id.fragmentContainer, FragmentDangNhap())
@@ -58,6 +73,7 @@ class FragmentDangKyNTV : Fragment() {
 
         return view
     }
+
 
     private fun dangKyNguoiDung() {
         val ho = etHo.text.toString().trim()
@@ -140,5 +156,7 @@ class FragmentDangKyNTV : Fragment() {
                 }
             }
     }
+
+
 
 }
