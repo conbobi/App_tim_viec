@@ -13,6 +13,7 @@
         android:theme="@style/Theme.App_tim_viec">
         <activity android:name=".ui.hosocanhan.ActivityHoSoNTV"/>
         <activity android:name=".ui.hosocanhan.ActivityChinhSuaHoSo"/>
+
         <!-- Activity chứa Fragment Đăng nhập -->
         <activity
             android:name=".UI.Xac_Thuc.dangnhap.ManHinhDangNhap"

@@ -17,7 +17,7 @@ class ActivityHoSoNTV : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        setContentView(R.layout.activity_ho_so_ntv) // gắn layout hoso.xml
         binding = ActivityHoSoNtvBinding.inflate(layoutInflater)
         setContentView(binding.root)
 

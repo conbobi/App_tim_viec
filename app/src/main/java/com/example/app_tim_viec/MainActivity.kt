@@ -4,7 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import com.example.app_tim_viec.ui.hosocanhan.ActivityHoSoNTV
+
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.app_tim_viec.databinding.ActivityMainBinding
@@ -29,10 +29,5 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-        // Xử lý sự kiện cho nút nằm ngoài lambda
-        binding.btnOpenChinhSua.setOnClickListener {
-            val intent = Intent(this, ActivityHoSoNTV::class.java)
-            startActivity(intent)
-        }
     }
 }

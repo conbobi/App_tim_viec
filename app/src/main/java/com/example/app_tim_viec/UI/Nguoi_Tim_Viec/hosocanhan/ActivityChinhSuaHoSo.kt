@@ -17,6 +17,7 @@ class ActivityChinhSuaHoSo : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityChinhSuaHoSoBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        setContentView(R.layout.activity_chinh_sua_ho_so)
 
         // Ví dụ TextView
         binding.txtEdit.text = "Đây là màn hình chỉnh sửa hồ sơ"

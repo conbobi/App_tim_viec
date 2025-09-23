@@ -153,6 +153,7 @@
             android:gravity="center">
 
             <ImageView
+                android:id="@+id/ic_home"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -162,6 +163,7 @@
                 android:padding="8dp"/>
 
             <ImageView
+                android:id="@+id/ic_tienich"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -171,6 +173,7 @@
                 android:padding="8dp"/>
 
             <ImageView
+                android:id="@+id/icHoso"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -180,6 +183,7 @@
                 android:padding="8dp"/>
 
             <ImageView
+                android:id="@+id/ic_chat"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -189,6 +193,7 @@
                 android:padding="8dp"/>
 
             <ImageView
+                android:id="@+id/ic_menu"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
