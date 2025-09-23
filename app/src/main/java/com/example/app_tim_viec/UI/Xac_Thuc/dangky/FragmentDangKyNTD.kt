@@ -32,7 +32,7 @@ class FragmentDangKyNTD : Fragment() {
 
     private lateinit var auth: FirebaseAuth
     private lateinit var db: FirebaseFirestore
-
+    private lateinit var tvBackToLogin: TextView
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -48,7 +48,7 @@ class FragmentDangKyNTD : Fragment() {
         autoProvince = view.findViewById(R.id.autoProvince)
         etTaxCode = view.findViewById(R.id.etTaxCode)
         btnRegisterEmployer = view.findViewById(R.id.btnRegisterEmployer)
-
+        tvBackToLogin = view.findViewById(R.id.tvBackToLogin)
         // Firebase
         auth = FirebaseAuth.getInstance()
         db = FirebaseFirestore.getInstance()
@@ -60,7 +60,13 @@ class FragmentDangKyNTD : Fragment() {
 
         // Xử lý nút đăng ký
         btnRegisterEmployer.setOnClickListener { dangKyNhaTuyenDung() }
-
+//xử lý quay trở về đăng nhập
+        tvBackToLogin.setOnClickListener {
+            requireActivity().supportFragmentManager.beginTransaction()
+                .replace(R.id.fragmentContainer, FragmentDangNhap())
+                .addToBackStack(null)
+                .commit()
+        }
         return view
     }
 
@@ -73,27 +79,37 @@ class FragmentDangKyNTD : Fragment() {
         val province = autoProvince.text.toString().trim()
         val taxCode = etTaxCode.text.toString().trim()
 
+        Log.d("RegisterEmployer", "Bắt đầu đăng ký với email=$email, company=$companyName, phone=$phone")
+
         // Kiểm tra input
         if (email.isEmpty() || password.isEmpty() || companyName.isEmpty() ||
             phone.isEmpty() || registrant.isEmpty() || province.isEmpty() || taxCode.isEmpty()) {
             Toast.makeText(context, "Vui lòng nhập đầy đủ thông tin!", Toast.LENGTH_SHORT).show()
+            Log.e("RegisterEmployer", "Thiếu thông tin input")
             return
         }
 
         if (password.length < 6) {
             Toast.makeText(context, "Mật khẩu phải có ít nhất 6 ký tự!", Toast.LENGTH_SHORT).show()
+            Log.e("RegisterEmployer", "Mật khẩu quá ngắn")
             return
         }
 
         // Tạo tài khoản trên Firebase Auth
+        Log.d("RegisterEmployer", "Gọi createUserWithEmailAndPassword...")
         auth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
-                    val uid = auth.currentUser?.uid
+                    Log.d("RegisterEmployer", "Tạo user Auth thành công")
+                    val user = task.result?.user
+                    val uid = user?.uid
+                    Log.d("RegisterEmployer", "UID được tạo: $uid")
+
                     if (uid != null) {
-                        val employer = hashMapOf(
+                        val userData = hashMapOf(
                             "id" to uid,
                             "email" to email,
+                            "role" to "employer",   // 👈 thêm role
                             "companyName" to companyName,
                             "phone" to phone,
                             "registrant" to registrant,
@@ -101,33 +117,39 @@ class FragmentDangKyNTD : Fragment() {
                             "taxCode" to taxCode
                         )
 
-                        // Lưu thông tin vào Firestore
-                        db.collection("employers").document(uid).set(employer)
+                        Log.d("RegisterEmployer", "Bắt đầu lưu Firestore vào collection 'users' với data: $userData")
+
+                        db.collection("users").document(uid).set(userData)  // 👈 dùng 'users'
                             .addOnSuccessListener {
                                 Toast.makeText(context, "Đăng ký thành công!", Toast.LENGTH_SHORT).show()
-                                Log.d("RegisterEmployer", "Lưu dữ liệu employer thành công")
+                                Log.d("RegisterEmployer", "Lưu dữ liệu user thành công")
 
                                 // Gửi email xác thực
-                                auth.currentUser?.sendEmailVerification()
-                                    ?.addOnSuccessListener {
-                                        Toast.makeText(context, "Đăng ký thành công! Vui lòng kiểm tra email để xác thực.", Toast.LENGTH_LONG).show()
-                                        Log.d("RegisterEmployer", "Đã gửi email xác thực")
+                                Log.d("RegisterEmployer", "Bắt đầu gửi email xác thực...")
+                                user.sendEmailVerification()
+                                    .addOnSuccessListener {
+                                        Toast.makeText(context, "Vui lòng kiểm tra email để xác thực.", Toast.LENGTH_LONG).show()
+                                        Log.d("RegisterEmployer", "Đã gửi email xác thực thành công tới: ${user.email}")
                                     }
-                                    ?.addOnFailureListener { e ->
+                                    .addOnFailureListener { e ->
                                         Toast.makeText(context, "Không gửi được email xác thực: ${e.message}", Toast.LENGTH_SHORT).show()
-                                        Log.e("RegisterEmployer", "Lỗi gửi email: ${e.message}")
+                                        Log.e("RegisterEmployer", "Lỗi gửi email: ${e.message}", e)
                                     }
                             }
-
                             .addOnFailureListener { e ->
                                 Toast.makeText(context, "Lỗi lưu Firestore: ${e.message}", Toast.LENGTH_SHORT).show()
-                                Log.e("RegisterEmployer", "Lỗi lưu Firestore: ${e.message}")
+                                Log.e("RegisterEmployer", "Lỗi lưu Firestore: ${e.message}", e)
                             }
+                    }
+
+                    else {
+                        Log.e("RegisterEmployer", "UID null sau khi tạo tài khoản")
                     }
                 } else {
                     Toast.makeText(context, "Đăng ký thất bại: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
-                    Log.e("RegisterEmployer", "Auth thất bại: ${task.exception?.message}")
+                    Log.e("RegisterEmployer", "Auth thất bại: ${task.exception?.message}", task.exception)
                 }
             }
     }
+
 }

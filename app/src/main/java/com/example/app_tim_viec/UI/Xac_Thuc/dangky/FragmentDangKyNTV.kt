@@ -124,6 +124,7 @@ class FragmentDangKyNTV : Fragment() {
                         val user = hashMapOf(
                             "id" to uid,
                             "hoTen" to fullName,
+                            "role" to "nguoi tim viec",
                             "email" to email,
                             "soDienThoai" to sdt
                         )
