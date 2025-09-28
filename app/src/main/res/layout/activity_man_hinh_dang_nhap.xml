@@ -15,15 +15,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
-    <!-- Nút mở màn hình Chỉnh Sửa -->
-    <Button
-        android:id="@+id/btnOpenChinhSua"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Mở Chỉnh Sửa"
-        android:layout_margin="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

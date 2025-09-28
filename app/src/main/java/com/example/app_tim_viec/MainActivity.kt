@@ -4,12 +4,11 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import com.example.app_tim_viec.ui.hosocanhan.ActivityHoSoNTV
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.app_tim_viec.databinding.ActivityMainBinding
 import com.example.app_tim_viec.databinding.ActivityManHinhDangNhapBinding
-
+import com.example.app_tim_viec.UI.Nha_Tuyen_Dung.trangchu.FragmentTrangChuNTD
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityManHinhDangNhapBinding
 
@@ -20,7 +19,11 @@ class MainActivity : AppCompatActivity() {
         // Dùng binding thay cho setContentView(R.layout.activity_main)
         binding = ActivityManHinhDangNhapBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+        if (savedInstanceState == null) {
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.fragmentContainer, FragmentTrangChuNTD())
+                .commit()
+        }
         // Áp dụng insets cho layout gốc
         ViewCompat.setOnApplyWindowInsetsListener(binding.main) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())

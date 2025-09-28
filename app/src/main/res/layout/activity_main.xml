@@ -7,6 +7,12 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <!-- Đây là vùng để load fragment con (mặc định có thể load Home) -->
+    <FrameLayout
+        android:id="@+id/main_fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
     <!-- Logo -->
 
     <!-- Tiêu đề -->
