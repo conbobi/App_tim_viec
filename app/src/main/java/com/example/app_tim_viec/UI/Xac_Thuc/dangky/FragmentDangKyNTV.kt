@@ -12,11 +12,9 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.app_tim_viec.R
 import com.example.app_tim_viec.UI.Xac_Thuc.dangnhap.FragmentDangNhap
-import com.example.app_tim_viec.UI.Xac_Thuc.register.EmployerRegisterFragment
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
-import kotlin.random.Random
-import  com.example.app_tim_viec.UI.Xac_Thuc.dangky.FragmentDangKyNTD
+
 class FragmentDangKyNTV : Fragment() {
 
     //nút qua trang đăng kí

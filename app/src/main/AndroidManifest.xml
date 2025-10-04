@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
+        android:name=".MyApp"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -11,8 +13,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.App_tim_viec">
-        <activity android:name=".ui.hosocanhan.ActivityHoSoNTV"/>
-        <activity android:name=".ui.hosocanhan.ActivityChinhSuaHoSo"/>
+        <activity android:name=".UI.hosocanhan.ActivityHoSoNTV"
+            tools:ignore="MissingClass" />
+        <activity android:name=".UI.hosocanhan.ActivityChinhSuaHoSo"/>
+        <activity android:name=".UI.Nguoi_Tim_Viec.hosocanhan.ActivityEditProfile" />
+
+
         <!-- Activity chứa Fragment Đăng nhập -->
         <activity
             android:name=".UI.Xac_Thuc.dangnhap.ManHinhDangNhap"
@@ -27,6 +33,8 @@
         <activity
             android:name=".MainActivity"
             android:exported="false" />
+
+
 
     </application>
 </manifest>

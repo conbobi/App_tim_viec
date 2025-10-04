@@ -14,11 +14,9 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import com.example.app_tim_viec.UI.Xac_Thuc.dangnhap.FragmentDangNhap
-import com.example.app_tim_viec.UI.Xac_Thuc.register.EmployerRegisterFragment
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
-import kotlin.random.Random
-import  com.example.app_tim_viec.UI.Xac_Thuc.dangky.FragmentDangKyNTD
+
 class FragmentDangKyNTD : Fragment() {
 
     private lateinit var etEmail: EditText

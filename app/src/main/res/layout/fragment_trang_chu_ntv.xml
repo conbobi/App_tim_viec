@@ -1,19 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white">
+    android:background="@color/white"
+    android:fitsSystemWindows="true">
 
-    <!-- Spacer cho StatusBar -->
-    <View
-        android:id="@+id/statusBarSpacer"
-        android:layout_width="match_parent"
-        android:layout_height="24dp"
-        android:background="@color/teal_200" />
 
-    <!-- Banner 1: Header -->
+
+<!-- Banner 1: Header -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -153,6 +150,7 @@
             android:gravity="center">
 
             <ImageView
+                android:id="@+id/ivTrangChu"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -162,6 +160,7 @@
                 android:padding="8dp"/>
 
             <ImageView
+                android:id="@+id/ivTienIch"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -171,6 +170,7 @@
                 android:padding="8dp"/>
 
             <ImageView
+                android:id="@+id/ivHoSo"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -179,7 +179,9 @@
                 android:scaleType="centerInside"
                 android:padding="8dp"/>
 
+
             <ImageView
+                android:id="@+id/ivChat"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -189,6 +191,7 @@
                 android:padding="8dp"/>
 
             <ImageView
+                android:id="@+id/ivMeNu"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -198,11 +201,6 @@
                 android:padding="8dp"/>
         </LinearLayout>
 
-        <!-- Spacer cho NavigationBar -->
-        <View
-            android:id="@+id/navigationBarSpacer"
-            android:layout_width="match_parent"
-            android:layout_height="24dp"
-            android:background="@color/teal_200"/>
+
     </LinearLayout>
 </LinearLayout>

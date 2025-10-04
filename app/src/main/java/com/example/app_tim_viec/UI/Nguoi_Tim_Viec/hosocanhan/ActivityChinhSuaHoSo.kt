@@ -1,4 +1,4 @@
-package com.example.app_tim_viec.ui.hosocanhan
+package com.example.app_tim_viec.UI.hosocanhan
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -7,7 +7,6 @@ import com.example.app_tim_viec.R
 import com.example.app_tim_viec.UI.Nguoi_Tim_Viec.hosocanhan.FragmentDiaDiem
 import com.example.app_tim_viec.UI.Nguoi_Tim_Viec.hosocanhan.FragmentKyNang
 import com.example.app_tim_viec.UI.Nguoi_Tim_Viec.hosocanhan.FragmentNgayThang
-import com.example.app_tim_viec.UI.Nguoi_Tim_Viec.hosocanhan.Fragment_Gio
 import com.example.app_tim_viec.UI.Nguoi_Tim_Viec.hosocanhan.Fragment_ChinhSuaKiNang
 class ActivityChinhSuaHoSo : AppCompatActivity() {
 
@@ -32,9 +31,7 @@ class ActivityChinhSuaHoSo : AppCompatActivity() {
             .replace(R.id.fragmentContainerNgayThang, FragmentNgayThang())
             .commit()
 
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.fragmentContainerGio, Fragment_Gio())
-            .commit()
+
 
         supportFragmentManager.beginTransaction()
             .replace(R.id.fragmentContainerChinhSuaKyNang, Fragment_ChinhSuaKiNang())

@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
     <!-- Đây là chỗ để hiển thị fragment -->
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentContainer"
@@ -15,15 +16,9 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
-    <!-- Nút mở màn hình Chỉnh Sửa -->
-    <Button
-        android:id="@+id/btnOpenChinhSua"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Mở Chỉnh Sửa"
-        android:layout_margin="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
-
-
+    <!-- Container để load Fragment -->
+    <FrameLayout
+        android:id="@+id/main_fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

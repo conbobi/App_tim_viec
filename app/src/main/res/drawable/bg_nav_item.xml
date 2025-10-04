@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Trạng thái được chọn (active) -->
+    <item android:drawable="@color/black" android:state_selected="true"/>
+    <!-- Trạng thái bình thường -->
+    <item android:drawable="@color/teal_n1"/>
+</selector>
