@@ -12,7 +12,6 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.app_tim_viec.R
 import com.example.app_tim_viec.UI.Xac_Thuc.dangky.FragmentDangKyNTV
-import com.example.app_tim_viec.UI.Nguoi_Tim_Viec.trangchu.FragmentTrangChuNTV
 import com.google.firebase.auth.FirebaseAuth
 
 class FragmentDangNhap : Fragment() {

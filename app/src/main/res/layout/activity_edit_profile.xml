@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- Toolbar / header simple: back -->
+        <ImageView
+            android:id="@+id/btnBack"
+            android:layout_width="50dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_arrow_back_border"
+            android:background="@null"
+            android:contentDescription="Back"
+            android:padding="1dp"
+
+        />
+
+        <!-- Avatar -->
+        <ImageView
+            android:id="@+id/imgAvatarEdit"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:src="@drawable/sample_avatar"
+            android:scaleType="centerCrop"
+            android:background="@drawable/bg_circle"
+            android:layout_marginTop="8dp"/>
+
+        <!-- Họ tên -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Họ tên"
+            android:layout_marginTop="16dp"/>
+
+        <EditText
+            android:id="@+id/edtName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nhập họ tên"/>
+
+        <!-- Chức danh mong muốn -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Chức danh mong muốn"
+            android:layout_marginTop="12dp"/>
+
+        <EditText
+            android:id="@+id/edtJobTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="VD: Nhân viên IT"/>
+
+        <!-- Địa điểm làm việc -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Địa điểm làm việc"
+            android:layout_marginTop="12dp"/>
+
+        <EditText
+            android:id="@+id/edtLocation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="VD: Hà Nội"/>
+
+        <!-- Nút Lưu -->
+        <Button
+            android:id="@+id/btnSave"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="Lưu thông tin"
+            android:layout_marginTop="20dp"/>
+    </LinearLayout>
+</ScrollView>

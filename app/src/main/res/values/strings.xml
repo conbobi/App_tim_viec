@@ -3,4 +3,6 @@
     <!-- Thêm 2 chuỗi này để fix lỗi -->
     <string name="navigation_drawer_open">Mở menu</string>
     <string name="navigation_drawer_close">Đóng menu</string>
+    <string name="cloud_name">dzysrtemd</string>
+    <string name="cloudinary_upload_preset">unsigned_avatars</string>
 </resources>

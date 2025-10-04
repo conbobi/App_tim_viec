@@ -48,7 +48,17 @@ class FragmentDangKyNTV : Fragment() {
         db = FirebaseFirestore.getInstance()
 
         btnRegister.setOnClickListener { dangKyNguoiDung() }
+// đăng kí nhà tuyển dụng
+        btnRegisterEmployer = view.findViewById(R.id.btnRegisterEmployer)
+// Đăng ký NTV
+        btnRegister.setOnClickListener { dangKyNguoiDung() }
 
+        btnRegisterEmployer.setOnClickListener {
+            requireActivity().supportFragmentManager.beginTransaction()
+                .replace(R.id.fragmentContainer, FragmentDangKyNTD())
+                .addToBackStack(null)
+                .commit()
+        }
         tvBackToLogin.setOnClickListener {
             requireActivity().supportFragmentManager.beginTransaction()
                 .replace(R.id.fragmentContainer, FragmentDangNhap())
@@ -58,6 +68,7 @@ class FragmentDangKyNTV : Fragment() {
 
         return view
     }
+
 
     private fun dangKyNguoiDung() {
         val ho = etHo.text.toString().trim()
@@ -108,6 +119,7 @@ class FragmentDangKyNTV : Fragment() {
                         val user = hashMapOf(
                             "id" to uid,
                             "hoTen" to fullName,
+                            "role" to "nguoi tim viec",
                             "email" to email,
                             "soDienThoai" to sdt
                         )
@@ -140,5 +152,7 @@ class FragmentDangKyNTV : Fragment() {
                 }
             }
     }
+
+
 
 }

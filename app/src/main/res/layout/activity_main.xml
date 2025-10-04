@@ -15,66 +15,51 @@
         android:id="@+id/logo"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_marginTop="140dp"
         android:src="@drawable/workly"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        tools:layout_editor_absoluteX="155dp"
+        tools:layout_editor_absoluteY="140dp" />
 
     <TextView
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
         android:text="Đăng nhập"
         android:textColor="@color/black"
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/logo" />
+        tools:layout_editor_absoluteX="147dp"
+        tools:layout_editor_absoluteY="261dp" />
 
     <EditText
         android:id="@+id/etPassword"
-        android:layout_width="0dp"
+        android:layout_width="371dp"
         android:layout_height="50dp"
-        android:layout_margin="20dp"
-        android:layout_marginTop="20dp"
         android:background="@color/teal_n2"
         android:hint="Mật khẩu"
         android:inputType="textPassword"
         android:padding="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/etEmail" />
+        tools:layout_editor_absoluteX="20dp"
+        tools:layout_editor_absoluteY="383dp" />
 
     <EditText
         android:id="@+id/etEmail"
-        android:layout_width="0dp"
+        android:layout_width="371dp"
         android:layout_height="50dp"
-        android:layout_margin="20dp"
-        android:layout_marginTop="24dp"
         android:background="@color/teal_n2"
         android:hint="Email"
         android:padding="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/title" />
+        tools:layout_editor_absoluteX="20dp"
+        tools:layout_editor_absoluteY="313dp" />
 
     <Button
         android:id="@+id/btnLogin"
-        android:layout_width="0dp"
+        android:layout_width="371dp"
         android:layout_height="50dp"
-        android:layout_margin="20dp"
-        android:layout_marginTop="24dp"
         android:backgroundTint="@color/teal_701"
         android:text="Đăng nhập"
         android:textColor="@color/teal_200"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/etPassword" />
+        tools:layout_editor_absoluteX="20dp"
+        tools:layout_editor_absoluteY="453dp" />
 
     <!-- Quên mật khẩu -->
 
@@ -84,35 +69,26 @@
         android:id="@+id/tvForgotPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="56dp"
-        android:layout_marginEnd="288dp"
         android:clickable="true"
         android:focusable="true"
         android:text="Quên mật khẩu?"
         android:textColor="@color/purple_500"
         android:textSize="14sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btnLogin"
-        app:layout_constraintVertical_bias="0.0" />
+        tools:layout_editor_absoluteX="20dp"
+        tools:layout_editor_absoluteY="559dp" />
 
     <TextView
         android:id="@+id/tvRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="152dp"
         android:clickable="true"
         android:focusable="true"
         android:text="Chưa có tài khoản? Đăng ký"
         android:textColor="@color/purple_500"
         android:textSize="14sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.857"
-        app:layout_constraintStart_toEndOf="@+id/tvForgotPassword"
-        app:layout_constraintTop_toBottomOf="@+id/btnLogin"
-        app:layout_constraintVertical_bias="0.982" />
+        tools:layout_editor_absoluteX="219dp"
+        tools:layout_editor_absoluteY="739dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

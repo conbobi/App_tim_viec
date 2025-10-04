@@ -1,6 +1,5 @@
 package com.example.app_tim_viec
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -9,6 +8,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.app_tim_viec.databinding.ActivityMainBinding
 import com.example.app_tim_viec.databinding.ActivityManHinhDangNhapBinding
+import com.example.app_tim_viec.UI.Nguoi_Tim_Viec.trangchu.FragmentTrangChuNTV
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityManHinhDangNhapBinding
@@ -29,5 +29,12 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
+        // ✅ Khi nhận intent quay về từ Hồ sơ, load lại fragment đúng
+        val openFragment = intent.getStringExtra("openFragment")
+        if (openFragment == "TrangChuNTV") {
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.main_fragment_container, FragmentTrangChuNTV())
+                .commitAllowingStateLoss()
+        }
     }
 }

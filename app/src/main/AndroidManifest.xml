@@ -11,6 +11,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.App_tim_viec">
+        <activity android:name=".UI.hosocanhan.ActivityHoSoNTV"
+            tools:ignore="MissingClass" />
+        <activity android:name=".UI.hosocanhan.ActivityChinhSuaHoSo"/>
+        <activity android:name=".UI.Nguoi_Tim_Viec.hosocanhan.ActivityEditProfile" />
+
+
         <activity android:name=".ui.hosocanhan.ActivityHoSoNTV"/>
         <activity android:name=".ui.hosocanhan.ActivityChinhSuaHoSo"/>
 
