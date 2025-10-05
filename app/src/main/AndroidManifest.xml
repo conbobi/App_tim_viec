@@ -17,7 +17,8 @@
             tools:ignore="MissingClass" />
         <activity android:name=".UI.hosocanhan.ActivityChinhSuaHoSo"/>
         <activity android:name=".UI.Nguoi_Tim_Viec.hosocanhan.ActivityEditProfile" />
-
+        <activity android:name=".UI.Nguoi_Tim_Viec.hosocanhan.ActivityeditInfcontact" />
+        <activity android:name=".UI.Nguoi_Tim_Viec.tinnhan.ActivityTinNhan" />
 
         <!-- Activity chứa Fragment Đăng nhập -->
         <activity

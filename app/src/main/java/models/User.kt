@@ -11,5 +11,6 @@ open class User(
 
 class UserProfile(
     var jobTitle: String? = null,
-    var location: String? = null
+    var location: String? = null,
+    var DiaChiNha: String? = null
 ) : User() // 👈 kế thừa

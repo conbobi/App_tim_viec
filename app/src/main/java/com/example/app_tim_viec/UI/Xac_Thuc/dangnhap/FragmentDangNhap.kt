@@ -56,13 +56,14 @@ class FragmentDangNhap : Fragment() {
                                 .addOnSuccessListener { document ->
                                     if (document != null && document.exists()) {
                                         val role = document.getString("role") // <-- lấy role từ Firestore
+                                        val hoten = document.getString("hoten") ?: "Người dùng"
                                         if (role == "employer") {
-                                            Toast.makeText(requireContext(), "Đăng nhập thành công (NTD)!", Toast.LENGTH_SHORT).show()
+                                            Toast.makeText(requireContext(), "Đăng nhập thành công (NTD): $hoten!", Toast.LENGTH_SHORT).show()
                                             requireActivity().supportFragmentManager.beginTransaction()
                                                 .replace(R.id.fragmentContainer, com.example.app_tim_viec.UI.Nha_Tuyen_Dung.trangchu.FragmentTrangChuNTD())
                                                 .commit()
                                         } else if (role == "nguoi tim viec") {
-                                            Toast.makeText(requireContext(), "Đăng nhập thành công (NTV)!", Toast.LENGTH_SHORT).show()
+                                            Toast.makeText(requireContext(), "Đăng nhập thành công (NTV): $hoten!", Toast.LENGTH_SHORT).show()
                                             requireActivity().supportFragmentManager.beginTransaction()
                                                 .replace(R.id.fragmentContainer, com.example.app_tim_viec.UI.Nguoi_Tim_Viec.trangchu.FragmentTrangChuNTV())
                                                 .commit()

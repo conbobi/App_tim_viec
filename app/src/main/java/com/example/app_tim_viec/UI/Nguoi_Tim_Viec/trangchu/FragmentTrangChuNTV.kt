@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.app_tim_viec.databinding.FragmentTrangChuNtvBinding
 import com.example.app_tim_viec.UI.hosocanhan.ActivityHoSoNTV
+import com.example.app_tim_viec.UI.Nguoi_Tim_Viec.tinnhan.ActivityTinNhan
 
 import com.example.app_tim_viec.R
 import com.example.app_tim_viec.models.User
@@ -35,6 +36,15 @@ class FragmentTrangChuNTV : Fragment() {
             startActivity(intent)
             requireActivity().overridePendingTransition(0, 0) // 🚀 Tắt animation chuyển trang
         }
+
+
+        // Bắt sự kiện click để mở Fragment tin nhan
+        binding.ivChat.setOnClickListener {
+            val intent = Intent(requireContext(), ActivityTinNhan::class.java)
+            startActivity(intent)
+            requireActivity().overridePendingTransition(0, 0)
+        }
+
 
         return binding.root
     }

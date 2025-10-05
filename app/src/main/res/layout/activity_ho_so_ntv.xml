@@ -64,6 +64,9 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <!-- Nội dung chính (cuộn được) -->
+
+
+    <!-- Banner 4: Menu cuối trang -->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -77,6 +80,10 @@
             android:orientation="vertical">
 
             <!-- 1. Khung thông tin cá nhân -->
+
+
+            <!-- 2. Mức độ hoàn thiện -->
+
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -84,6 +91,7 @@
                 android:background="@color/teal_n4"
                 android:padding="16dp">
 
+                <!-- Avatar -->
                 <ImageView
                     android:id="@+id/imgAvatar"
                     android:layout_width="80dp"
@@ -93,6 +101,7 @@
                     android:scaleType="centerCrop"
                     android:src="@drawable/sample_avatar" />
 
+                <!-- Thông tin cá nhân -->
                 <LinearLayout
                     android:id="@+id/layoutInfo"
                     android:layout_width="wrap_content"
@@ -106,7 +115,7 @@
                         android:id="@+id/txtName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Trịnh Huy Hoàng"
+                        android:text="Tên người dùng"
                         android:textColor="@android:color/white"
                         android:textSize="18sp"
                         android:textStyle="bold" />
@@ -115,7 +124,7 @@
                         android:id="@+id/txtJobTitle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Nhân viên IT"
+                        android:text="Công việc"
                         android:textColor="@android:color/white"
                         android:textSize="14sp" />
 
@@ -123,11 +132,12 @@
                         android:id="@+id/txtLocation"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Hà Nội, Hồ Chí Minh"
+                        android:text="Địa điểm"
                         android:textColor="@android:color/white"
                         android:textSize="14sp" />
                 </LinearLayout>
 
+                <!-- Nút sửa hồ sơ -->
                 <ImageView
                     android:id="@+id/btnEditProfile"
                     android:layout_width="30dp"
@@ -136,9 +146,47 @@
                     android:contentDescription="Sửa"
                     android:padding="8dp"
                     android:src="@drawable/ic_edit" />
+
+                <!-- Nút đăng xuất (nhỏ, nằm góc phải dưới cùng của khung thông tin cá nhân) -->
+
+                <LinearLayout
+                    android:id="@+id/layoutLogout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginTop="112dp"
+                    android:layout_marginEnd="1dp"
+                    android:layout_marginBottom="6dp"
+                    android:background="@drawable/bg_logout_button"
+                    android:elevation="4dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="10dp"
+                    android:paddingVertical="6dp">
+
+
+                    <ImageView
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:src="@drawable/ic_logout"
+                        app:tint="@android:color/white" />
+
+                    <TextView
+                        android:id="@+id/btnLogout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="6dp"
+                        android:text="Đăng xuất"
+                        android:textColor="@android:color/white"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+
             </RelativeLayout>
 
-            <!-- 2. Mức độ hoàn thiện -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -190,6 +238,7 @@
             </LinearLayout>
 
             <!-- 4. Thông tin liên hệ -->
+            <!-- Thông tin liên hệ (thay thế phần cũ) -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -197,34 +246,412 @@
                 android:orientation="vertical"
                 android:padding="16dp">
 
-                <TextView
-                    android:layout_width="wrap_content"
+                <!-- Hàng ngang: tiêu đề + nút sửa -->
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="8dp"
-                    android:text="Thông tin liên hệ"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Thông tin liên hệ"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <ImageView
+                        android:id="@+id/btnEditInfcontact"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:contentDescription="Sửa"
+                        android:padding="8dp"
+                        android:src="@drawable/ic_edit" />
+                </LinearLayout>
+
+                <!-- Phone -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_phone" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:text="  Số điện thoại:" />
+
+                    <TextView
+                        android:id="@+id/txtPhone"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_weight="1"
+                        android:text="Chưa cập nhật" />
+
+                    <ImageView
+                        android:id="@+id/ivEditPhone"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:padding="6dp" />
+                </LinearLayout>
+
+                <!-- Email -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_email" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:text="  Email:" />
+
+                    <TextView
+                        android:id="@+id/txtEmail"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_weight="1"
+                        android:text="Chưa cập nhật" />
+
+                    <ImageView
+                        android:id="@+id/ivEditEmail"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:padding="6dp" />
+                </LinearLayout>
+
+                <!-- Address -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_location" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:text="  Địa chỉ:" />
+
+                    <TextView
+                        android:id="@+id/txtAddress"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_weight="1"
+                        android:text="Chưa cập nhật" />
+
+                    <ImageView
+                        android:id="@+id/ivEditAddress"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:padding="6dp" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+            <!-- 5. Ngành nghề quan tâm -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="12dp"
+                android:background="@drawable/bg_card"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <!-- Tiêu đề + nút cập nhật -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Ngành nghề quan tâm"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/btnUpdateInterest"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Cập nhật"
+                        android:textColor="@color/blue"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <!-- Danh sách ngành nghề -->
+                <LinearLayout
+                    android:id="@+id/interestList"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingTop="8dp">
+
+                    <!-- Ví dụ tĩnh, bạn có thể thêm động từ code -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="CNTT" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Marketing" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- 6. Thông tin tìm việc -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:background="@drawable/bg_card"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Thông tin tìm việc"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/btnUpdateJobInfo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Cập nhật"
+                        android:textColor="@color/blue"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <!-- Thông tin chi tiết -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Trình độ học vấn:" />
+
+                    <TextView
+                        android:id="@+id/txtEducationLevel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Đại Học" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Mức lương mong muốn:" />
+
+                    <TextView
+                        android:id="@+id/txtExpectedSalary"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Thêm mức lương" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Hình thức làm việc:" />
+
+                    <TextView
+                        android:id="@+id/txtWorkType"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Toàn thời gian" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- 7. Kỹ năng chuyên môn -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:background="@drawable/bg_card"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Kỹ năng chuyên môn"
                     android:textSize="16sp"
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/btnUpdateSkill"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Số điện thoại: 0347793976" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Email: hoanglubo2004@gmail.com" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Địa chỉ: 17 Hẻm 178 Huỳnh Văn Lũy" />
+                    android:text="Cập nhật"
+                    android:textColor="@color/blue"
+                    android:textSize="14sp" />
             </LinearLayout>
+
+            <!-- 8. Kinh nghiệm làm việc -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:background="@drawable/bg_card"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Kinh nghiệm làm việc"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/btnAddExperience"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="+ Thêm"
+                        android:textColor="@color/blue"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <!-- Item kinh nghiệm mẫu -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/txtExpPeriod"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="07/2023 → 07/2027"
+                            android:textColor="@color/blue"
+                            android:textSize="14sp" />
+
+                        <ImageView
+                            android:id="@+id/btnEditExp"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_marginStart="8dp"
+                            android:src="@drawable/ic_edit" />
+
+                        <ImageView
+                            android:id="@+id/btnDeleteExp"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_marginStart="4dp"
+                            android:src="@drawable/ic_delete" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/txtExpTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Sinh viên"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/txtExpCompany"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Đại học Thủ Dầu Một" />
+
+                    <TextView
+                        android:id="@+id/txtExpDesc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Đang học tập và tham gia các hoạt động của trường"
+                        android:textColor="@color/gray" />
+                </LinearLayout>
+            </LinearLayout>
+
+
         </LinearLayout>
+
+
     </ScrollView>
 
-
-    <!-- Banner 4: Menu cuối trang -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
