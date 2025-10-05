@@ -1,6 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:padding="16dp">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:divider="?android:attr/dividerVertical"
+        android:showDividers="middle">
+
+        <!-- Thông tin cơ bản -->
+        <EditText android:id="@+id/edtTitle" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Tiêu đề"/>
+        <EditText android:id="@+id/edtMoTa" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Mô tả"/>
+        <EditText android:id="@+id/edtYeuCauCV" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Yêu cầu CV"/>
+        <EditText android:id="@+id/edtQuyenLoi" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Quyền lợi"/>
+        <EditText android:id="@+id/edtEmailLienHe" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Email liên hệ"/>
+
+        <!-- Thông tin chi tiết -->
+        <EditText android:id="@+id/edtSoNamKN" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Số năm kinh nghiệm" android:inputType="number"/>
+        <EditText android:id="@+id/edtDoTuoiMin" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Độ tuổi tối thiểu" android:inputType="number"/>
+        <EditText android:id="@+id/edtDoTuoiMax" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Độ tuổi tối đa" android:inputType="number"/>
+        <EditText android:id="@+id/edtThoiGianTu" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Thời gian làm việc từ"/>
+        <EditText android:id="@+id/edtThoiGianDen" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Thời gian làm việc đến"/>
+        <EditText android:id="@+id/edtBangCap" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Bằng cấp tối thiểu"/>
+        <EditText android:id="@+id/edtGioiTinh" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Yêu cầu giới tính"/>
+        <EditText android:id="@+id/edtSoDienThoai" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Số điện thoại"/>
+        <EditText android:id="@+id/edtChucVu" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Chức vụ"/>
+        <EditText android:id="@+id/edtKyNang" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Kỹ năng (phân cách bằng dấu phẩy)"/>
+        <EditText android:id="@+id/edtDiaChi" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Địa chỉ"/>
+        <EditText android:id="@+id/edtNgonNgu" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Ngôn ngữ yêu cầu"/>
+        <EditText android:id="@+id/edtTinhThanh" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Tỉnh/TP"/>
+        <EditText android:id="@+id/edtSoLuong" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Số lượng cần tuyển" android:inputType="number"/>
+        <EditText android:id="@+id/edtChungChi" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Chứng chỉ (phân cách bằng dấu phẩy)"/>
+        <EditText android:id="@+id/edtLuong" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Mức lương" android:inputType="number"/>
+
+        <Button android:id="@+id/btnSave" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Lưu thay đổi"/>
+    </LinearLayout>
+</ScrollView>
