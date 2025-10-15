@@ -63,6 +63,30 @@
                 android:minLines="3"/>
         </com.google.android.material.textfield.TextInputLayout>
 
+        <!-- Nút chọn ảnh -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnChonAnh"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Thêm ảnh (tối đa 5)"
+            android:icon="@drawable/ic_add_photo"
+            app:iconGravity="textStart"
+            android:layout_marginTop="12dp"
+            android:textAllCaps="false" />
+
+        <!-- Hiển thị ảnh đã chọn -->
+        <GridLayout
+            android:id="@+id/layoutAnhPreview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:columnCount="3"
+            android:rowCount="2"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal" />
+
+
+
         <Button
             android:id="@+id/btnGui"
             android:layout_width="match_parent"

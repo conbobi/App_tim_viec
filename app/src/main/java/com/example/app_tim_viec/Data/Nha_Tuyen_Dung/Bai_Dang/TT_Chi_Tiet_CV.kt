@@ -9,6 +9,7 @@ data class TT_Chi_Tiet_CV(
     var bangCapToiThieu: String = "",
     var chucVu: String = "",
     var soNamKinhNghiem: Int = 0,
+    var anhCongViec: List<String>? = null, // 🔥 thêm dòng này
     var mucLuong: Int,
     var soLuongCanTuyen: Int = 0,
     var tinhChatCongViec: String = "",

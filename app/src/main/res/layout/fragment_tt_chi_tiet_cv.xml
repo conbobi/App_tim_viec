@@ -32,6 +32,18 @@
             android:textColor="@android:color/black"
             android:paddingBottom="8dp" />
 
+        <!-- Slider hiển thị ảnh công việc -->
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/viewPagerHinhAnh"
+            android:layout_width="match_parent"
+            android:layout_height="220dp"
+            android:layout_marginBottom="12dp"
+            android:clipToPadding="false"
+            android:clipChildren="false"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:overScrollMode="never" />
+
         <!-- Mức lương -->
         <TextView
             android:id="@+id/tvLuong"

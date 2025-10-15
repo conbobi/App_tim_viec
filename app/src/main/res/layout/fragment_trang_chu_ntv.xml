@@ -8,16 +8,13 @@
     android:background="@color/white"
     android:fitsSystemWindows="true">
 
-
-
-<!-- Banner 1: Header -->
+    <!-- Banner 1: Header -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="12dp"
         android:background="@color/teal_200">
 
-        <!-- Logo + Text -->
         <LinearLayout
             android:id="@+id/layoutLogo"
             android:orientation="horizontal"
@@ -42,7 +39,6 @@
                 android:textStyle="bold"/>
         </LinearLayout>
 
-        <!-- Icon search -->
         <ImageView
             android:id="@+id/ivSearch"
             android:layout_width="24dp"
@@ -52,7 +48,6 @@
             app:layout_constraintTop_toTopOf="parent"
             android:layout_marginEnd="16dp"/>
 
-        <!-- Icon notification -->
         <ImageView
             android:id="@+id/ivNotification"
             android:layout_width="24dp"
@@ -62,7 +57,7 @@
             app:layout_constraintTop_toTopOf="parent"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <!-- Banner 2: Việc đề xuất cho bạn -->
+    <!-- 🏷️ Banner: Việc đề xuất cho bạn -->
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
@@ -76,49 +71,21 @@
             android:textSize="16sp"
             android:textStyle="bold"/>
 
-        <!-- Item nổi bật -->
-        <LinearLayout
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerTopJobs"
             android:layout_width="match_parent"
-            android:layout_height="423dp"
+            android:layout_height="250dp"
             android:layout_marginTop="8dp"
-            android:background="@drawable/bg_card"
-            android:orientation="vertical"
-            android:padding="12dp">
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="245dp"
-                android:scaleType="centerCrop"
-                android:src="@drawable/sample_company" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="Công ty ABC"
-                android:textSize="14sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="10k lượt xem - 15 triệu/tháng"
-                android:textSize="12sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Hà Nội, Việt Nam"
-                android:textSize="12sp" />
-        </LinearLayout>
+            android:orientation="horizontal"/>
     </LinearLayout>
 
-    <!-- Banner 3: Công việc đề xuất -->
+    <!-- 🏷️ Banner: Công việc đề xuất -->
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_height="wrap_content"
         android:padding="16dp">
 
         <TextView
@@ -131,9 +98,34 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerSuggestedJobs"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="8dp"/>
+            android:layout_height="250dp"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"/>
     </LinearLayout>
+
+    <!-- Banner 3: Công việc khác -->
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Công việc khác"
+            android:textSize="16sp"
+            android:textStyle="bold"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerAllJobs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:padding="8dp"
+            android:nestedScrollingEnabled="false"/>
+    </LinearLayout>
+
 
     <!-- Banner 4: Menu cuối trang -->
     <LinearLayout
@@ -142,7 +134,6 @@
         android:orientation="vertical"
         android:background="@color/teal_200">
 
-        <!-- Menu icon -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="56dp"
@@ -179,7 +170,6 @@
                 android:scaleType="centerInside"
                 android:padding="8dp"/>
 
-
             <ImageView
                 android:id="@+id/ivChat"
                 android:layout_width="0dp"
@@ -200,7 +190,5 @@
                 android:scaleType="centerInside"
                 android:padding="8dp"/>
         </LinearLayout>
-
-
     </LinearLayout>
 </LinearLayout>

@@ -1,0 +1,55 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="200dp"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="8dp"
+    android:layout_marginEnd="12dp"
+    android:background="@drawable/bg_card"
+    android:elevation="4dp">
+
+    <ImageView
+        android:id="@+id/imgJob"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/sample_company"
+        android:background="#EEE" />
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tiêu đề công việc"
+        android:textStyle="bold"
+        android:textSize="14sp"
+        android:paddingTop="4dp"
+        android:maxLines="2"
+        android:ellipsize="end"/>
+
+    <TextView
+        android:id="@+id/tvMoTa"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Yêu cầu công việc..."
+        android:textSize="12sp"
+        android:maxLines="2"
+        android:ellipsize="end"
+        android:textColor="#555"/>
+
+    <TextView
+        android:id="@+id/tvEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="email@example.com"
+        android:textSize="12sp"
+        android:textColor="#555"/>
+
+    <TextView
+        android:id="@+id/tvLuong"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="15.000.000 VND"
+        android:textSize="13sp"
+        android:textColor="#E53935"
+        android:textStyle="bold"/>
+</LinearLayout>
