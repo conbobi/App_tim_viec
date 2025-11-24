@@ -5,15 +5,14 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
-    android:fitsSystemWindows="true">
+    android:background="@color/white">
 
-    <!-- Banner 1: Header -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="12dp"
-        android:background="@color/teal_200">
+        android:background="@color/teal_200"
+        android:elevation="4dp">
 
         <LinearLayout
             android:id="@+id/layoutLogo"
@@ -55,140 +54,209 @@
             android:src="@drawable/ic_notification"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"/>
+
+        <EditText
+            android:id="@+id/edtSearch"
+            android:layout_width="0dp"
+            android:layout_height="36dp"
+            android:background="@drawable/bg_search_box"
+            android:hint="Tìm kiếm công việc..."
+            android:paddingStart="8dp"
+            android:paddingEnd="36dp"
+            android:textSize="14sp"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/ivDoSearch"
+            app:layout_constraintTop_toBottomOf="@id/layoutLogo"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"/>
+
+        <ImageView
+            android:id="@+id/ivCloseSearch"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@android:drawable/ic_delete"
+            android:visibility="gone"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="@id/edtSearch"
+            app:layout_constraintTop_toTopOf="@id/edtSearch"
+            app:layout_constraintBottom_toBottomOf="@id/edtSearch"
+            app:tint="#757575" />
+
+        <ImageView
+            android:id="@+id/ivDoSearch"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:src="@drawable/ic_search"
+            android:background="@drawable/bg_search_box"
+            android:padding="6dp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/edtSearch"
+            app:layout_constraintBottom_toBottomOf="@id/edtSearch" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <!-- 🏷️ Banner: Việc đề xuất cho bạn -->
-    <LinearLayout
-        android:orientation="vertical"
+    <FrameLayout
+        android:id="@+id/fragmentContainer1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="16dp">
+        android:layout_height="0dp"
+        android:layout_weight="1">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Việc đề xuất cho bạn"
-            android:textSize="16sp"
-            android:textStyle="bold"/>
+        <ScrollView
+            android:id="@+id/scrollViewMain"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
 
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Tất cả công việc"
+                        android:textSize="16sp"
+                        android:textStyle="bold"/>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recyclerTopJobs"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:orientation="horizontal"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Công việc đề xuất"
+                        android:textSize="16sp"
+                        android:textStyle="bold"/>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recyclerSuggestedJobs"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:orientation="horizontal"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Việc tuyển gấp"
+                        android:textSize="16sp"
+                        android:textStyle="bold"/>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recyclerAllJobs"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:padding="8dp"
+                        android:nestedScrollingEnabled="false"/>
+                </LinearLayout>
+
+            </LinearLayout>
+        </ScrollView>
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerTopJobs"
+            android:id="@+id/recyclerSearchResults"
             android:layout_width="match_parent"
-            android:layout_height="250dp"
-            android:layout_marginTop="8dp"
-            android:orientation="horizontal"/>
-    </LinearLayout>
-
-    <!-- 🏷️ Banner: Công việc đề xuất -->
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="16dp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Công việc đề xuất"
-            android:textSize="16sp"
-            android:textStyle="bold"/>
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerSuggestedJobs"
-            android:layout_width="match_parent"
-            android:layout_height="250dp"
-            android:layout_marginTop="8dp"
-            android:orientation="horizontal"/>
-    </LinearLayout>
-
-    <!-- Banner 3: Công việc khác -->
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="16dp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Công việc khác"
-            android:textSize="16sp"
-            android:textStyle="bold"/>
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerAllJobs"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            android:background="@color/white"
             android:padding="8dp"
-            android:nestedScrollingEnabled="false"/>
-    </LinearLayout>
+            android:clipToPadding="false"/>
 
+        <TextView
+            android:id="@+id/tvNoResult"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Không tìm thấy kết quả nào"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            android:textSize="16sp"
+            android:textColor="#757575"/>
 
-    <!-- Banner 4: Menu cuối trang -->
+    </FrameLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:background="@color/teal_200">
+        android:layout_height="56dp"
+        android:orientation="horizontal"
+        android:background="@color/teal_200"
+        android:gravity="center">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:orientation="horizontal"
-            android:gravity="center">
+        <ImageView
+            android:id="@+id/ivTrangChu"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@drawable/ic_home"
+            android:contentDescription="Trang chủ"
+            android:scaleType="centerInside"
+            android:padding="8dp"/>
 
-            <ImageView
-                android:id="@+id/ivTrangChu"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:src="@drawable/ic_home"
-                android:contentDescription="Trang chủ"
-                android:scaleType="centerInside"
-                android:padding="8dp"/>
+        <ImageView
+            android:id="@+id/ivTienIch"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@drawable/ic_tienich"
+            android:contentDescription="Đơn ứng tuyển "
+            android:scaleType="centerInside"
+            android:padding="8dp"/>
 
-            <ImageView
-                android:id="@+id/ivTienIch"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:src="@drawable/ic_tienich"
-                android:contentDescription="Tiện ích"
-                android:scaleType="centerInside"
-                android:padding="8dp"/>
+        <ImageView
+            android:id="@+id/ivHoSo"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@drawable/ic_hoso"
+            android:contentDescription="Hồ sơ"
+            android:scaleType="centerInside"
+            android:padding="8dp"/>
 
-            <ImageView
-                android:id="@+id/ivHoSo"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:src="@drawable/ic_hoso"
-                android:contentDescription="Hồ sơ"
-                android:scaleType="centerInside"
-                android:padding="8dp"/>
+        <ImageView
+            android:id="@+id/ivChat"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@drawable/ic_chat"
+            android:contentDescription="Chat"
+            android:scaleType="centerInside"
+            android:padding="8dp"/>
 
-            <ImageView
-                android:id="@+id/ivChat"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:src="@drawable/ic_chat"
-                android:contentDescription="Chat"
-                android:scaleType="centerInside"
-                android:padding="8dp"/>
-
-            <ImageView
-                android:id="@+id/ivMeNu"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:src="@drawable/ic_menu"
-                android:contentDescription="Menu"
-                android:scaleType="centerInside"
-                android:padding="8dp"/>
-        </LinearLayout>
+        <ImageView
+            android:id="@+id/ivMeNu"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@drawable/ic_menu"
+            android:contentDescription="Menu"
+            android:scaleType="centerInside"
+            android:padding="8dp"/>
     </LinearLayout>
 </LinearLayout>

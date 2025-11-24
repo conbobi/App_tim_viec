@@ -9,39 +9,40 @@ import com.example.app_tim_viec.R
 import com.example.app_tim_viec.databinding.ItemJobHorizontalBinding
 
 class JobHorizontalAdapter(
-    private val jobs: List<Bai_Dang_CV>,
+    private var jobs: MutableList<Bai_Dang_CV>, // đổi từ List -> MutableList
     private val onItemClick: (Bai_Dang_CV) -> Unit
 ) : RecyclerView.Adapter<JobHorizontalAdapter.JobViewHolder>() {
 
-    inner class JobViewHolder(val binding: ItemJobHorizontalBinding) :
+    inner class JobViewHolder(private val binding: ItemJobHorizontalBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(job: Bai_Dang_CV) {
-            // ✅ Ưu tiên lấy tiêu đề và mô tả từ thuộc tính chính (nếu rỗng thì fallback sang thongTinCoBan)
-            val title = if (!job.tieuDe.isNullOrEmpty()) job.tieuDe else job.thongTinCoBan?.Tieu_De ?: "Không có tiêu đề"
-            val moTa = if (!job.moTa.isNullOrEmpty()) job.moTa else job.thongTinCoBan?.Mo_Ta ?: "Không có mô tả"
-            val email = if (!job.emailLienHe.isNullOrEmpty()) job.emailLienHe else job.thongTinCoBan?.Email_Lien_He ?: "Chưa cập nhật"
-            val luong = job.thongTinChiTiet?.mucLuong ?: 0
+            val title = job.tieuDe?:"".ifEmpty { "Không có tiêu đề" }
+            val moTa = job.moTa?:"".ifEmpty { "Không có mô tả" }
+            val email = job.emailLienHe?:"".ifEmpty { "Chưa cập nhật email" }
+            val luongValue = job.thongTinChiTiet?.mucLuong ?: 0
+            val company = job.tenCongTy?:"".ifEmpty { "chưa có tên cty" }
 
             binding.tvTitle.text = title
             binding.tvMoTa.text = moTa
             binding.tvEmail.text = email
-            binding.tvLuong.text = "$luong VND"
+            binding.tvLuong.text = if (luongValue > 0) {
+                String.format("%,d VND", luongValue)
+            } else {
+                "Thỏa thuận"
+            }
+            binding.tvCompany.text = company
 
-            // ✅ Lấy hình ảnh: ưu tiên hinhAnh trong Bai_Dang_CV, fallback sang thongTinChiTiet.anhCongViec
-            val firstImage = job.hinhAnh?.firstOrNull()
-                ?: job.thongTinChiTiet?.anhCongViec?.firstOrNull()
-
-            if (!firstImage.isNullOrEmpty()) {
+            val imageUrl = job.hinhAnh?.firstOrNull()
+            if (!imageUrl.isNullOrEmpty()) {
                 Glide.with(binding.root.context)
-                    .load(firstImage)
+                    .load(imageUrl)
                     .placeholder(R.drawable.sample_company)
                     .into(binding.imgJob)
             } else {
                 binding.imgJob.setImageResource(R.drawable.sample_company)
             }
 
-            // ✅ Sự kiện click
             binding.root.setOnClickListener { onItemClick(job) }
         }
     }
@@ -52,9 +53,16 @@ class JobHorizontalAdapter(
         return JobViewHolder(binding)
     }
 
-    override fun getItemCount() = jobs.size
-
     override fun onBindViewHolder(holder: JobViewHolder, position: Int) {
         holder.bind(jobs[position])
+    }
+
+    override fun getItemCount() = jobs.size
+
+    // 🔥 Hàm update data khi tìm kiếm
+    fun updateData(newJobs: List<Bai_Dang_CV>) {
+        jobs.clear()
+        jobs.addAll(newJobs)
+        notifyDataSetChanged()
     }
 }

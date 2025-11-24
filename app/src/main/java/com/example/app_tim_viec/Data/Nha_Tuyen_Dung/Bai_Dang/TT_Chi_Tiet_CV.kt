@@ -29,9 +29,9 @@ data class TT_Chi_Tiet_CV(
 data class DoTuoi(
     var min: Int = 0,
     var max: Int = 0
-)
+): Serializable
 data class thoiGianLamViec(
     var tu: String="",
     var den: String=""
-)
+): Serializable
 

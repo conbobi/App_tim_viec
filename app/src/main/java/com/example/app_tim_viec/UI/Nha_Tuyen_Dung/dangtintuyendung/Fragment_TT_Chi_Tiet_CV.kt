@@ -56,7 +56,7 @@ class Fragment_TT_Chi_Tiet_CV : Fragment() {
 
             // 🔹 Lấy ảnh trực tiếp từ collection BaiDangCV
             db.collection("BaiDangCV")
-                .document(job.maBaiDang)
+                .document(job.maBaiDang?:"")
                 .get()
                 .addOnSuccessListener { doc ->
                     if (doc.exists()) {
@@ -77,6 +77,40 @@ class Fragment_TT_Chi_Tiet_CV : Fragment() {
                     Log.e(TAG, "🔥 Lỗi khi truy vấn 'BaiDangCV': ${e.message}")
                 }
         }
+
+
+        // load dữ liệu các trường thiếu
+        // ✅ Đúng: dùng trực tiếp baiDang?.maBaiDang
+        baiDang?.maBaiDang?.let { maBaiDang ->
+            db.collection("BaiDangCV")
+                .document(maBaiDang)
+                .collection("thongTinChiTiet")
+                .get()
+                .addOnSuccessListener { subDocs  ->
+                    if (!subDocs.isEmpty) {
+                        val data = subDocs.documents.first().data
+
+
+
+                        val min = data?.get("yeuCauDoTuoi.min") as? String ?: ""
+                        val max = data?.get("yeuCauDoTuoi.max") as? String ?: ""
+
+
+                        val tu = data?.get("thoiGianLamViec.tu") as? String ?: ""
+                        val den = data?.get("thoiGianLamViec.den") as? String ?: ""
+                        val kyNang = data?.get("kyNangChuyenMon") as? String ?: ""
+                        val chungChi = data?.get("chungChiYeuCau") as? String ?: ""
+
+                        binding.tvDoTuoi.text = "Độ tuổi: $min - $max"
+                        binding.tvThoiGianLamViec.text = "Thời gian: $tu - $den"
+                        binding.tvKyNang.text = "Kỹ năng: $kyNang"
+                        binding.tvChungChi.text = "Chứng chỉ: $chungChi"
+                    }
+                }
+        }
+
+
+
 
         // Nút chỉnh sửa bài đăng
         binding.btnEdit.setOnClickListener {

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardElevation="4dp"
+    app:cardCornerRadius="8dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/tvViTriUngTuyen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            tools:text="Vị trí công việc" />
+
+        <TextView
+            android:id="@+id/tvTenUngVien"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:layout_marginTop="4dp"
+            tools:text="Tên người ứng tuyển" />
+
+        <TextView
+            android:id="@+id/tvTrangThai"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:textStyle="italic"
+            tools:text="Trạng thái: Chưa duyệt" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginTop="12dp">
+
+            <Button
+                android:id="@+id/btnXemCV"
+                android:text="Xem CV"
+                android:textSize="10sp"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp" />
+
+            <Space android:layout_width="8dp" android:layout_height="wrap_content"/>
+
+            <ImageView
+                android:id="@+id/btnEmail"
+                android:src="@android:drawable/ic_dialog_email"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                app:tint="#FF9800"/>
+
+            <Space android:layout_width="12dp" android:layout_height="wrap_content"/>
+
+            <ImageView
+                android:id="@+id/btnChat"
+                android:src="@android:drawable/sym_action_chat"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                app:tint="#4CAF50"/>
+
+            <Space android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"/>
+
+            <Button
+                android:id="@+id/btnDuyet"
+                android:text="OK"
+                android:backgroundTint="#4CAF50"
+                android:layout_width="50dp"
+                android:layout_height="40dp"
+                android:textSize="10sp"/>
+
+            <Space android:layout_width="4dp" android:layout_height="wrap_content"/>
+
+            <Button
+                android:id="@+id/btnTuChoi"
+                android:text="X"
+                android:backgroundTint="#F44336"
+                android:layout_width="50dp"
+                android:layout_height="40dp"
+                android:textSize="10sp"/>
+        </LinearLayout>
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

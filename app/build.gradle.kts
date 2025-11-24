@@ -49,12 +49,13 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
-
+    implementation("androidx.fragment:fragment-ktx:1.7.1")
     // Cloudinary client
     implementation("com.cloudinary:cloudinary-android:2.3.1")
 
     // Glide để load ảnh
     implementation("com.github.bumptech.glide:glide:4.15.1")
+    implementation(libs.androidx.camera.camera2.pipe)
     kapt("com.github.bumptech.glide:compiler:4.15.1")
 
     // Firebase
@@ -75,4 +76,10 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
+
+
+    // Thêm thư viện Supabase Storage
+    implementation("io.github.jan-tennert.supabase:storage-kt:2.5.0") // Kiểm tra bản mới nhất
+    implementation("io.ktor:ktor-client-android:2.3.8") // Cần cho Supabase-kt
 }

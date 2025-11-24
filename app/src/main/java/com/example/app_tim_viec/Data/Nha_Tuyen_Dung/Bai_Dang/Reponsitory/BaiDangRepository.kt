@@ -12,6 +12,84 @@ import kotlin.collections.List
 
 class BaiDangRepository {
 
+    // new load theo user của bài đăng
+    suspend fun getBaiDangTheoNhaTuyenDung(maNhaTuyenDung: String): List<Bai_Dang_CV> {
+        val snapshot = FirebaseFirestore.getInstance()
+            .collection("BaiDangCV")
+            .whereEqualTo("maNhaTuyenDung", maNhaTuyenDung)
+            .get()
+            .await()
+
+        val jobs = mutableListOf<Bai_Dang_CV>()
+
+        for (doc in snapshot.documents) {
+            val subSnapshot = doc.reference.collection("thongTinCoBan").get().await()
+            val subSnapshotChiTiet = doc.reference.collection("thongTinChiTiet").get().await()
+
+            var ttChiTiet: TT_Chi_Tiet_CV? = null
+            var tieuDe = ""
+            var moTa = ""
+            var yeuCauCV = ""
+            var quyenLoi = ""
+            var emailLienHe = ""
+
+            if (!subSnapshot.isEmpty) {
+                val subDoc = subSnapshot.documents.first()
+                tieuDe = subDoc.getString("Tieu_De") ?: ""
+                moTa = subDoc.getString("Mo_Ta") ?: ""
+                yeuCauCV = subDoc.getString("Yeu_Cau_CV") ?: ""
+                quyenLoi = subDoc.getString("Quyen_Loi") ?: ""
+                emailLienHe = subDoc.getString("Email_Lien_He") ?: ""
+            }
+
+            if (!subSnapshotChiTiet.isEmpty) {
+                val subDoc = subSnapshotChiTiet.documents.first()
+                ttChiTiet = TT_Chi_Tiet_CV(
+                    soNamKinhNghiem = subDoc.getLong("soNamKinhNghiem")?.toInt() ?: 0,
+                    yeuCauDoTuoi = DoTuoi(
+                        min = (subDoc.get("yeuCauDoTuoi.min") as? Number)?.toInt() ?: 0,
+                        max = (subDoc.get("yeuCauDoTuoi.max") as? Number)?.toInt() ?: 0
+                    ),
+                    thoiGianLamViec = thoiGianLamViec(
+                        tu = (subDoc.get("thoiGianLamViec.tu") as? String) ?: "",
+                        den = (subDoc.get("thoiGianLamViec.den") as? String) ?: ""
+                    ),
+                    bangCapToiThieu = subDoc.getString("bangCapToiThieu") ?: "",
+                    yeuCauGioiTinh = subDoc.getString("yeuCauGioiTinh") ?: "",
+                    soDienThoaiTuyenDung = subDoc.getString("soDienThoaiTuyenDung") ?: "",
+                    chucVu = subDoc.getString("chucVu") ?: "",
+                    kyNangChuyenMon = subDoc.get("kyNangChuyenMon") as? List<String> ?: emptyList(),
+                    diaChiNoiLamViec = subDoc.getString("diaChiNoiLamViec") ?: "",
+                    ngonNguYeuCau = subDoc.getString("ngonNguYeuCau") ?: "",
+                    tinhThanhPho = subDoc.getString("tinhThanhPho") ?: "",
+                    soLuongCanTuyen = subDoc.getLong("soLuongCanTuyen")?.toInt() ?: 0,
+                    chungChiYeuCau = subDoc.get("chungChiYeuCau") as? List<String> ?: emptyList(),
+                    mucLuong = subDoc.getLong("mucLuong")?.toInt() ?: 0
+                )
+            }
+
+            val baiDang = Bai_Dang_CV(
+                maBaiDang = doc.id,
+                maNhaTuyenDung = doc.getString("maNhaTuyenDung") ?: "",
+                thoiGianTao = doc.getTimestamp("thoiGianTao")?.toDate()?.time ?: 0L,
+                thoiGianHetHan = doc.getTimestamp("thoiGianHetHan")?.toDate()?.time ?: 0L,
+                thongTinChiTiet = ttChiTiet,
+                tieuDe = tieuDe,
+                moTa = moTa,
+                yeuCauCV = yeuCauCV,
+                quyenLoi = quyenLoi,
+                emailLienHe = emailLienHe
+            )
+
+            jobs.add(baiDang)
+        }
+
+        return jobs
+    }
+
+
+
+
     private val db = FirebaseFirestore.getInstance()
     private val collection = db.collection("BaiDangCV")
 
@@ -107,7 +185,7 @@ class BaiDangRepository {
 
     // 🟢 Thêm hoặc cập nhật bài đăng
     suspend fun updateBaiDang(job: Bai_Dang_CV) {
-        val jobRef = collection.document(job.maBaiDang)
+        val jobRef = collection.document(job.maBaiDang ?:"")
 
         val thongTinCoBan = mapOf(
             "Tieu_De" to job.tieuDe,

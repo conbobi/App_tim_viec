@@ -121,51 +121,64 @@ class ActivityEditProfile : AppCompatActivity() {
 
     // --- Hàm upload lên Cloudinary (unsigned preset) ---
     private fun uploadImageToCloudinary(imageUri: Uri) {
-        // hiển thị toast / progress đơn giản
+        // BƯỚC 1: UI - Thông báo cho người dùng biết quá trình bắt đầu
         Toast.makeText(this, "Đang tải ảnh lên...", Toast.LENGTH_SHORT).show()
-        val preset = getString(R.string.cloudinary_upload_preset) // từ strings.xml
-        // Optionally set folder and resource_type
+
+        // Lấy cấu hình (preset) từ file strings.xml
+        val preset = getString(R.string.cloudinary_upload_preset)
+
+        // BƯỚC 2: CLOUDINARY REQUEST - Thực hiện đẩy file ảnh từ máy lên Server Cloudinary
         MediaManager.get().upload(imageUri)
-            .unsigned(preset)
-            .option("folder", "avatars")
-            .option("resource_type", "image")
-            .callback(object : UploadCallback {
+            .unsigned(preset) // Chế độ upload không cần đăng nhập (unsigned)
+            .option("folder", "avatars") // Chỉ định lưu vào thư mục 'avatars' trên Cloud
+            .option("resource_type", "image") // Khai báo đây là file ảnh
+            .callback(object : UploadCallback { // Lắng nghe kết quả trả về (Callback)
+
                 override fun onStart(requestId: String?) {
-                    Log.d("Cloudinary", "Upload started")
+                    Log.d("Cloudinary", "Bắt đầu upload...")
                 }
 
                 override fun onProgress(requestId: String?, bytes: Long, totalBytes: Long) {
-                    // bạn có thể cập nhật progress bar nếu muốn
+                    // Chỗ này dùng để cập nhật thanh loading % nếu cần
                 }
 
+                // BƯỚC 3: CLOUDINARY RESPONSE - Upload thành công, Server trả về kết quả
                 override fun onSuccess(requestId: String?, resultData: MutableMap<Any?, Any?>?) {
-                    Log.d("Cloudinary", "Upload success: $resultData")
-                    // secure_url thường chứa link HTTPS
+                    Log.d("Cloudinary", "Upload thành công: $resultData")
+
+                    // BƯỚC 4: TRÍCH XUẤT DỮ LIỆU - Lấy đường Link ảnh (URL) từ kết quả trả về
+                    // 'secure_url' là link https (bảo mật), nếu không có thì lấy 'url' thường
                     val url = resultData?.get("secure_url") as? String ?: resultData?.get("url") as? String
+
                     if (!url.isNullOrEmpty()) {
-                        // Lưu URL vào Firestore
+                        // BƯỚC 5: FIREBASE REQUEST - Có link rồi -> Gọi Firebase để lưu link vào DB
                         uid?.let { uid ->
                             db.collection("users").document(uid)
-                                .update("avatarUrl", url)
+                                .update("avatarUrl", url) // Chỉ update trường 'avatarUrl', giữ nguyên tên/tuổi
+
+                                // BƯỚC 6: FIREBASE RESPONSE - Database báo đã lưu xong
                                 .addOnSuccessListener {
                                     Toast.makeText(this@ActivityEditProfile, "Ảnh đã được cập nhật", Toast.LENGTH_SHORT).show()
-                                    // show ảnh mới
+
+                                    // BƯỚC 7: UI UPDATE - Dùng thư viện Glide tải ảnh từ Link mới về hiển thị ngay
                                     Glide.with(this@ActivityEditProfile)
                                         .load(url)
-                                        .circleCrop()
+                                        .circleCrop() // Cắt ảnh hình tròn
                                         .into(binding.imgAvatarEdit)
                                 }
                                 .addOnFailureListener {
+                                    // Lỗi khi lưu vào Firebase
                                     Toast.makeText(this@ActivityEditProfile, "Lưu ảnh lên Firestore thất bại", Toast.LENGTH_SHORT).show()
                                 }
                         }
                     } else {
-                        Toast.makeText(this@ActivityEditProfile, "Không lấy được URL ảnh", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this@ActivityEditProfile, "Không lấy được URL ảnh từ Cloudinary", Toast.LENGTH_SHORT).show()
                     }
                 }
 
                 override fun onError(requestId: String?, error: ErrorInfo?) {
-                    Log.e("Cloudinary", "Upload error: ${error?.description}")
+                    // Xử lý lỗi khi không upload được lên Cloudinary (mạng yếu, sai key...)
+                    Log.e("Cloudinary", "Lỗi Upload: ${error?.description}")
                     Toast.makeText(this@ActivityEditProfile, "Tải ảnh thất bại: ${error?.description}", Toast.LENGTH_LONG).show()
                 }
 
@@ -173,6 +186,6 @@ class ActivityEditProfile : AppCompatActivity() {
                     Log.d("Cloudinary", "Rescheduled: ${error?.description}")
                 }
             })
-            .dispatch()
+            .dispatch() // Lệnh kích hoạt ("bắn") request đi
     }
 }

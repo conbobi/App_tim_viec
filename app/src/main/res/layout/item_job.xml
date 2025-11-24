@@ -6,6 +6,7 @@
     android:layout_height="wrap_content"
     android:padding="12dp">
 
+    <!-- Tiêu đề công việc -->
     <TextView
         android:id="@+id/tvJobTitle"
         android:layout_width="0dp"
@@ -13,18 +14,42 @@
         android:text="Tiêu đề"
         android:textStyle="bold"
         android:textSize="16sp"
+        android:maxLines="2"
+        android:ellipsize="end"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toStartOf="@id/btnDelete"
+        app:layout_constraintHorizontal_bias="0.0"/>
+
+    <!-- Nút Xóa (ở góc trên phải) -->
+    <ImageButton
+        android:id="@+id/btnDelete"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:contentDescription="Xóa công việc"
+        android:src="@drawable/ic_delete"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        app:tint="?attr/colorControlNormal"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="0dp" />
+
+    <!-- Mô tả ngắn -->
     <TextView
         android:id="@+id/tvJobDescription"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="Mô tả"
         android:textSize="14sp"
+        android:maxLines="3"
+        android:ellipsize="end"
         app:layout_constraintTop_toBottomOf="@id/tvJobTitle"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp"/>
+
+    <!-- Email liên hệ -->
     <TextView
         android:id="@+id/tvJobEmail"
         android:layout_width="0dp"
@@ -34,5 +59,8 @@
         android:textColor="@android:color/holo_blue_dark"
         app:layout_constraintTop_toBottomOf="@id/tvJobDescription"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
