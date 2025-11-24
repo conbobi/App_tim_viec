@@ -13,6 +13,7 @@ import androidx.fragment.app.Fragment
 import com.example.app_tim_viec.R
 import com.example.app_tim_viec.UI.Xac_Thuc.dangky.FragmentDangKyNTV
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 
 class FragmentDangNhap : Fragment() {
 
@@ -41,48 +42,64 @@ class FragmentDangNhap : Fragment() {
                 return@setOnClickListener
             }
 
-            // Đăng nhập với FirebaseAuth
+            // Đăng nhập Firebase
             auth.signInWithEmailAndPassword(email, password)
-
                 .addOnCompleteListener { task ->
-
                     if (task.isSuccessful) {
                         val user = auth.currentUser
                         val uid = user?.uid
 
                         if (uid != null) {
-                            val db = com.google.firebase.firestore.FirebaseFirestore.getInstance()
+                            val db = FirebaseFirestore.getInstance()
                             db.collection("users").document(uid).get()
                                 .addOnSuccessListener { document ->
                                     if (document != null && document.exists()) {
-                                        val role = document.getString("role") // <-- lấy role từ Firestore
+                                        val role = document.getString("role")
                                         val hoten = document.getString("hoten") ?: "Người dùng"
-                                        if (role == "employer") {
-                                            Toast.makeText(requireContext(), "Đăng nhập thành công (NTD): $hoten!", Toast.LENGTH_SHORT).show()
-                                            requireActivity().supportFragmentManager.beginTransaction()
-                                                .replace(R.id.fragmentContainer, com.example.app_tim_viec.UI.Nha_Tuyen_Dung.trangchu.FragmentTrangChuNTD())
-                                                .commit()
-                                        } else if (role == "nguoi tim viec") {
-                                            Toast.makeText(requireContext(), "Đăng nhập thành công (NTV): $hoten!", Toast.LENGTH_SHORT).show()
-                                            requireActivity().supportFragmentManager.beginTransaction()
-                                                .replace(R.id.fragmentContainer, com.example.app_tim_viec.UI.Nguoi_Tim_Viec.trangchu.FragmentTrangChuNTV())
-                                                .commit()
-                                        } else {
-                                            Toast.makeText(requireContext(), "Tài khoản không có role hợp lệ!", Toast.LENGTH_SHORT).show()
+
+                                        if (!isAdded || activity == null) return@addOnSuccessListener  // ✅ tránh crash nếu fragment bị hủy
+
+                                        when (role) {
+                                            "employer" -> {
+                                                Toast.makeText(requireContext(), "Đăng nhập thành công (NTD): $hoten!", Toast.LENGTH_SHORT).show()
+                                                parentFragmentManager.beginTransaction()
+                                                    .replace(
+                                                        R.id.fragmentContainer,
+                                                        com.example.app_tim_viec.UI.Nha_Tuyen_Dung.trangchu.FragmentTrangChuNTD()
+                                                    )
+                                                    .commitAllowingStateLoss() // ✅ an toàn hơn commit()
+                                            }
+
+                                            "nguoi tim viec" -> {
+                                                Toast.makeText(requireContext(), "Đăng nhập thành công (NTV): $hoten!", Toast.LENGTH_SHORT).show()
+                                                parentFragmentManager.beginTransaction()
+                                                    .replace(
+                                                        R.id.fragmentContainer,
+                                                        com.example.app_tim_viec.UI.Nguoi_Tim_Viec.trangchu.FragmentTrangChuNTV()
+                                                    )
+                                                    .commitAllowingStateLoss()
+                                            }
+
+                                            else -> {
+                                                Toast.makeText(requireContext(), "Tài khoản không có role hợp lệ!", Toast.LENGTH_SHORT).show()
+                                            }
                                         }
                                     } else {
                                         Log.e("Login", "Không tìm thấy thông tin user trong Firestore")
-                                        Toast.makeText(requireContext(), "Không tìm thấy thông tin tài khoản!", Toast.LENGTH_SHORT).show()
+                                        if (isAdded)
+                                            Toast.makeText(requireContext(), "Không tìm thấy thông tin tài khoản!", Toast.LENGTH_SHORT).show()
                                     }
                                 }
                                 .addOnFailureListener { e ->
                                     Log.e("Login", "Lỗi đọc Firestore: ${e.message}")
-                                    Toast.makeText(requireContext(), "Lỗi hệ thống!", Toast.LENGTH_SHORT).show()
+                                    if (isAdded)
+                                        Toast.makeText(requireContext(), "Lỗi hệ thống!", Toast.LENGTH_SHORT).show()
                                 }
                         }
                     } else {
                         Log.e("Login", "Đăng nhập thất bại: ${task.exception?.message}")
-                        Toast.makeText(requireContext(), "Email hoặc mật khẩu không đúng!", Toast.LENGTH_SHORT).show()
+                        if (isAdded)
+                            Toast.makeText(requireContext(), "Email hoặc mật khẩu không đúng!", Toast.LENGTH_SHORT).show()
                     }
                 }
         }
@@ -91,7 +108,7 @@ class FragmentDangNhap : Fragment() {
             requireActivity().supportFragmentManager.beginTransaction()
                 .replace(R.id.fragmentContainer, FragmentDangKyNTV())
                 .addToBackStack(null)
-                .commit()
+                .commitAllowingStateLoss()
         }
 
         tvForgotPassword.setOnClickListener {

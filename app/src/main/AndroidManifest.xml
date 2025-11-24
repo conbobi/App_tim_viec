@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
     <application
         android:name=".MyApp"
@@ -19,7 +20,11 @@
         <activity android:name=".UI.Nguoi_Tim_Viec.hosocanhan.ActivityEditProfile" />
         <activity android:name=".UI.Nguoi_Tim_Viec.hosocanhan.ActivityeditInfcontact" />
         <activity android:name=".UI.Nguoi_Tim_Viec.tinnhan.ActivityTinNhan" />
-
+        <activity android:name=".UI.Chat.ChatActivity" />
+        <activity android:name=".UI.Nguoi_Tim_Viec.donungtuyen.ActivityDonUngTuyenNTV" />
+        <activity
+            android:name=".UI.Nguoi_Tim_Viec.hosocanhan.UploadCVActivity"
+            android:exported="false" />
         <!-- Activity chứa Fragment Đăng nhập -->
         <activity
             android:name=".UI.Xac_Thuc.dangnhap.ManHinhDangNhap"
@@ -30,12 +35,15 @@
             </intent-filter>
         </activity>
 
+
         <!-- Activity chính sau đăng nhập -->
         <activity
             android:name=".MainActivity"
             android:exported="false" />
 
-
+        <activity
+            android:name=".UI.Nguoi_Tim_Viec.hosocanhan.ManageCVsActivity"
+            android:exported="false" />
 
     </application>
 </manifest>

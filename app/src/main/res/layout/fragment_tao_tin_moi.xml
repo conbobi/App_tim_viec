@@ -63,6 +63,209 @@
                 android:minLines="3"/>
         </com.google.android.material.textfield.TextInputLayout>
 
+
+        <!-- - BẮT ĐẦU: các trường thông tin bổ sung cần cho Kotlin - -->
+        <!-- Kinh nghiệm (số năm) -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Số năm kinh nghiệm">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtSoNamKinhNghiem"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Bằng cấp tối thiểu -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Bằng cấp tối thiểu">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtBangCapToiThieu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Yêu cầu giới tính -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Yêu cầu giới tính">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtYeuCauGioiTinh"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Số lượng cần tuyển -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Số lượng cần tuyển">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtSoLuongCanTuyen"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Mức lương (số) -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Mức lương">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtMucLuong"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Chức vụ -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Chức vụ">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtChucVu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Kỹ năng chuyên môn -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Kỹ năng chuyên môn">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtKyNangChuyenMon"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Chứng chỉ yêu cầu -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Chứng chỉ yêu cầu">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtChungChiYeuCau"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Ngôn ngữ yêu cầu -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Ngôn ngữ yêu cầu">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtNgonNguYeuCau"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Địa chỉ nơi làm việc -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Địa chỉ nơi làm việc">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtDiaChiNoiLamViec"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Tỉnh / Thành phố -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Tỉnh / Thành phố">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtTinhThanhPho"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Tuổi (min) -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Yêu cầu độ tuổi từ">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtTuoiMin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Tuổi (max) -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Đến độ tuổi">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtTuoiMax"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <!-- Giờ làm việc từ -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Giờ làm việc (từ)">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtGioTu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:focusable="false"
+                android:clickable="true"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Giờ làm việc đến -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Giờ làm việc (đến)">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtGioDen"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:focusable="false"
+                android:clickable="true"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+
+        <!-- Nút chọn ảnh -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnChonAnh"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Thêm ảnh (tối đa 5)"
+            android:icon="@drawable/ic_add_photo"
+            app:iconGravity="textStart"
+            android:layout_marginTop="12dp"
+            android:textAllCaps="false" />
+
+        <!-- Hiển thị ảnh đã chọn -->
+        <GridLayout
+            android:id="@+id/layoutAnhPreview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:columnCount="3"
+            android:rowCount="2"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal" />
+
+
+
         <Button
             android:id="@+id/btnGui"
             android:layout_width="match_parent"

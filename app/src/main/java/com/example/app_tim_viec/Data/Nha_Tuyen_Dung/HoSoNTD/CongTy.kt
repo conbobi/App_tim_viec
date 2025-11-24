@@ -8,9 +8,9 @@ data class CongTy (
     var Email: String ="",
     var DS_BaiDang: List<Bai_Dang_CV> = listOf(),
     var SoDienTHoai: String=""
-)
+): Serializable
 
 data class DiaChi(
     var  Tinh: String="",
     var  Huyen: String=""
-)
+): Serializable

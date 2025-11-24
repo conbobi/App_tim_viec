@@ -13,6 +13,6 @@ class FragmentDanhSachTN : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_chat, container, false)
+        return inflater.inflate(R.layout.activity_chat, container, false)
     }
 }

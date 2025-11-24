@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp">
+
+        <TextView android:text="Tên công ty *" android:textStyle="bold" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+        <EditText android:id="@+id/edtCongTy" android:hint="Công ty đã làm việc" android:background="@android:drawable/edit_text" android:padding="12dp" android:layout_marginTop="4dp" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+
+        <TextView android:text="Chức danh *" android:textStyle="bold" android:layout_marginTop="12dp" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+        <EditText android:id="@+id/edtChucVu" android:hint="Vị trí công việc" android:background="@android:drawable/edit_text" android:padding="12dp" android:layout_marginTop="4dp" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+
+        <LinearLayout android:orientation="horizontal" android:layout_marginTop="12dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <LinearLayout android:orientation="vertical" android:layout_weight="1" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginEnd="8dp">
+                <TextView android:text="Bắt đầu *" android:textStyle="bold" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                <EditText android:id="@+id/edtStart" android:hint="MM/YYYY" android:background="@android:drawable/edit_text" android:padding="12dp" android:layout_marginTop="4dp" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+            </LinearLayout>
+            <LinearLayout android:orientation="vertical" android:layout_weight="1" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginStart="8dp">
+                <TextView android:text="Kết thúc" android:textStyle="bold" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                <EditText android:id="@+id/edtEnd" android:hint="MM/YYYY" android:background="@android:drawable/edit_text" android:padding="12dp" android:layout_marginTop="4dp" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <CheckBox android:id="@+id/cbWorkingHere" android:text="Đang làm việc tại đây" android:layout_marginTop="8dp" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+
+        <TextView android:text="Mô tả công việc *" android:textStyle="bold" android:layout_marginTop="12dp" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+        <EditText android:id="@+id/edtDesc" android:hint="Mô tả chi tiết..." android:background="@android:drawable/edit_text" android:padding="12dp" android:layout_marginTop="4dp" android:gravity="top" android:minLines="3" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+    </LinearLayout>
+</ScrollView>

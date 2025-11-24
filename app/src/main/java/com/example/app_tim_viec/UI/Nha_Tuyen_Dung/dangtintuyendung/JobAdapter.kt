@@ -11,7 +11,8 @@ import com.example.app_tim_viec.R
 import com.example.app_tim_viec.databinding.ItemJobBinding
 class JobAdapter(
     private val jobs: List<Bai_Dang_CV>,
-    private val onItemClick: (Bai_Dang_CV) -> Unit
+    private val onItemClick: (Bai_Dang_CV) -> Unit,
+    private val onDeleteClick: (Bai_Dang_CV) -> Unit
 ) : RecyclerView.Adapter<JobAdapter.JobViewHolder>() {
 
     inner class JobViewHolder(val binding: ItemJobBinding) : RecyclerView.ViewHolder(binding.root)
@@ -28,10 +29,17 @@ class JobAdapter(
             tvJobTitle.text = baiDang.tieuDe ?: "Không có tiêu đề"
             tvJobDescription.text = baiDang.moTa ?: "Không có mô tả"
             tvJobEmail.text = baiDang.emailLienHe ?: "Không có email"
+            // Click item -> chi tiết
+            root.setOnClickListener { onItemClick(baiDang) }
+            // Click nút xóa
+            btnDelete.setOnClickListener { onDeleteClick(baiDang) }
         }
         // 🟢 Khi click item -> gọi callback
         holder.itemView.setOnClickListener {
             onItemClick(baiDang)
+        }
+        holder.binding.btnDelete.setOnClickListener {
+            onDeleteClick(baiDang) // 🔴 gọi callback khi nhấn xóa
         }
     }
 

@@ -1,6 +1,120 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="#F9F9F9"
+    android:clipToPadding="false"> <!-- Thêm cái này để padding không bị scroll -->
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:divider="?android:attr/dividerHorizontal"
+        android:showDividers="middle">
+
+        <!-- Tiêu đề -->
+        <TextView
+            android:id="@+id/tvTieuDe"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tiêu đề công việc"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:paddingBottom="8dp" />
+
+        <!-- Slider ảnh -->
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/viewPagerHinhAnh"
+            android:layout_width="match_parent"
+            android:layout_height="220dp"
+            android:layout_marginBottom="12dp"
+            android:clipToPadding="false"
+            android:clipChildren="false"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:overScrollMode="never" />
+
+        <!-- Mức lương -->
+        <TextView
+            android:id="@+id/tvLuong"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mức lương: ..."
+            android:textSize="16sp"
+            android:textColor="#FF5722"
+            android:textStyle="bold"
+            android:paddingBottom="12dp" />
+
+        <!-- Mô tả -->
+        <TextView
+            android:id="@+id/tvMoTa"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Mô tả công việc"
+            android:textSize="16sp"
+            android:lineSpacingExtra="4dp"
+            android:textColor="@android:color/black"
+            android:paddingBottom="16dp" />
+
+        <!-- Thông tin chi tiết -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="4dp"
+            android:layout_marginBottom="16dp"
+            app:contentPadding="16dp"> <!-- Dùng contentPadding cho CardView -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView android:id="@+id/tvSoNamKinhNghiem" style="@style/DetailText" />
+                <TextView android:id="@+id/tvDoTuoi" style="@style/DetailText" />
+                <TextView android:id="@+id/tvThoiGianLamViec" style="@style/DetailText" />
+                <TextView android:id="@+id/tvBangCap" style="@style/DetailText" />
+                <TextView
+                    android:id="@+id/tvGioiTinh"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:textColor="#000000"
+                    android:lineSpacingExtra="0dp"
+                    android:lineSpacingMultiplier="1"
+                    android:includeFontPadding="false"
+                    android:singleLine="true"
+                    android:ellipsize="none"
+                    android:text="Giới tính: Nam" />
+
+                <TextView android:id="@+id/tvSoDienThoai" style="@style/DetailText" />
+                <TextView android:id="@+id/tvChucVu" style="@style/DetailText" />
+                <TextView android:id="@+id/tvKyNang" style="@style/DetailText" />
+                <TextView android:id="@+id/tvDiaChi" style="@style/DetailText" />
+                <TextView android:id="@+id/tvNgonNgu" style="@style/DetailText" />
+                <TextView android:id="@+id/tvTinhThanh" style="@style/DetailText" />
+                <TextView android:id="@+id/tvSoLuong" style="@style/DetailText" />
+                <TextView android:id="@+id/tvChungChi" style="@style/DetailText" />
+
+                <!-- NÚT ĐÃ BỊ XÓA KHỎI ĐÂY -->
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- === SỬA LỖI: NÚT ỨNG TUYỂN ĐẶT RA NGOÀI VÀ SỬA THUỘC TÍNH === -->
+        <Button
+            android:id="@+id/btnUngTuyen"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nộp đơn ứng tuyển"
+            android:textSize="16sp"
+            android:padding="12dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="16dp" />
+        <!-- === KẾT THÚC SỬA LỖI === -->
+
+    </LinearLayout>
+</ScrollView>

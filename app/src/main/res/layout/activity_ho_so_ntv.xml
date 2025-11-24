@@ -7,10 +7,6 @@
     android:background="@color/white">
 
     <!-- Spacer cho StatusBar -->
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:background="@color/teal_200" />
 
     <!-- Banner 1: Header -->
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -379,7 +375,6 @@
             </LinearLayout>
 
 
-            <!-- 5. Ngành nghề quan tâm -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -389,13 +384,11 @@
                 android:orientation="vertical"
                 android:padding="16dp">
 
-                <!-- Tiêu đề + nút cập nhật -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
                     android:orientation="horizontal">
-
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -403,34 +396,35 @@
                         android:text="Ngành nghề quan tâm"
                         android:textSize="16sp"
                         android:textStyle="bold" />
-
                     <TextView
                         android:id="@+id/btnUpdateInterest"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Cập nhật"
                         android:textColor="@color/blue"
-                        android:textSize="14sp" />
+                        android:textSize="14sp"
+                        android:padding="8dp"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/containerNganhNghe"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingTop="8dp">
+                    <TextView
+                        android:id="@+id/tvListNganhNghe"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Chưa chọn ngành nghề nào"
+                        android:textColor="@color/black"/>
                 </LinearLayout>
 
-                <!-- Danh sách ngành nghề -->
                 <LinearLayout
                     android:id="@+id/interestList"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:paddingTop="8dp">
-
-                    <!-- Ví dụ tĩnh, bạn có thể thêm động từ code -->
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="CNTT" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Marketing" />
                 </LinearLayout>
             </LinearLayout>
 
@@ -528,34 +522,45 @@
                 </LinearLayout>
             </LinearLayout>
 
-            <!-- 7. Kỹ năng chuyên môn -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp"
                 android:background="@drawable/bg_card"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
+                android:orientation="vertical"
                 android:padding="16dp">
 
-                <TextView
-                    android:layout_width="0dp"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Kỹ năng chuyên môn"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
 
-                <TextView
-                    android:id="@+id/btnUpdateSkill"
-                    android:layout_width="wrap_content"
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Kỹ năng chuyên môn"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/btnUpdateSkill"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Cập nhật"
+                        android:textColor="@color/blue"
+                        android:textSize="14sp"
+                        android:padding="8dp"/>
+                </LinearLayout>
+
+                <com.google.android.material.chip.ChipGroup
+                    android:id="@+id/containerKyNang"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Cập nhật"
-                    android:textColor="@color/blue"
-                    android:textSize="14sp" />
+                    android:layout_marginTop="8dp"/>
             </LinearLayout>
 
-            <!-- 8. Kinh nghiệm làm việc -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -584,65 +589,17 @@
                         android:layout_height="wrap_content"
                         android:text="+ Thêm"
                         android:textColor="@color/blue"
-                        android:textSize="14sp" />
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:padding="8dp"/>
                 </LinearLayout>
 
-                <!-- Item kinh nghiệm mẫu -->
                 <LinearLayout
+                    android:id="@+id/containerExperience"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:paddingTop="8dp"
-                    android:paddingBottom="8dp">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:id="@+id/txtExpPeriod"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="07/2023 → 07/2027"
-                            android:textColor="@color/blue"
-                            android:textSize="14sp" />
-
-                        <ImageView
-                            android:id="@+id/btnEditExp"
-                            android:layout_width="24dp"
-                            android:layout_height="24dp"
-                            android:layout_marginStart="8dp"
-                            android:src="@drawable/ic_edit" />
-
-                        <ImageView
-                            android:id="@+id/btnDeleteExp"
-                            android:layout_width="24dp"
-                            android:layout_height="24dp"
-                            android:layout_marginStart="4dp"
-                            android:src="@drawable/ic_delete" />
-                    </LinearLayout>
-
-                    <TextView
-                        android:id="@+id/txtExpTitle"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Sinh viên"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/txtExpCompany"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Đại học Thủ Dầu Một" />
-
-                    <TextView
-                        android:id="@+id/txtExpDesc"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Đang học tập và tham gia các hoạt động của trường"
-                        android:textColor="@color/gray" />
+                    android:paddingTop="8dp">
                 </LinearLayout>
             </LinearLayout>
 
